@@ -30,7 +30,6 @@ body {
   color: var(--text);
 }
 
-
 .main {
   display: flex;
   flex-direction: row;
@@ -43,6 +42,7 @@ body {
   align-items: center;
   justify-content: flex-end;
   width: 100%;
+  font-size: 15px;
   ul {
     display: flex;
     flex-direction: row;
@@ -55,8 +55,9 @@ body {
 
 // __________Bookmark Component__________//
 .bookmark {
-  width: 10%;
-  padding: 2% 2% 10% 2%;
+  width: 15%;
+  height: 60vh;
+  padding: 2% 1% 10% 1%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -67,28 +68,21 @@ body {
   border-color: goldenrod;
   margin: 0% 4% 0% 4%;
   color: var(--text);
-  max-height: 250px;
   ul {
     list-style: none;
+    height: 55vh;
     overflow-y: scroll;
+    font-size: 15px;
+    li {
+      margin-top: 1vh;
+      margin-bottom: 1vh;
+    }
   }
 }
 
 .content {
   display: flex;
 }
-
-// __________List Component__________//
-// .list {
-//   ul {
-//     list-style: none;
-//     li {
-//       padding-top: 7px;
-//     }
-//   }
-//   display: flex;
-//   flex-direction: row;
-// }
 
 // __________Create Component__________//
 .create {
@@ -98,16 +92,12 @@ body {
 
 // __________Footer Component__________//
 .footer {
-  // position: absolute;
-  // background-color: aqua;
-  // margin: 0;
-  // bottom: 0;
   width: 100%;
   position: fixed;
   width: 100%;
   bottom: 0;
-  
 }
+
 // __________Show Component__________//
 .spellShow {
   width: 70%;
@@ -116,9 +106,9 @@ body {
   text-align: left;
   height: 70vh;
   overflow-y: scroll;
-  // color: var(--text);
   p {
     white-space: pre-wrap;
+    font-size: 18px;
   }
 }
 .spellDescription {
@@ -136,3 +126,5 @@ a {
   padding: 1%;
   color: var(--text);
 }
+
+// __________Glow Effect__________//
