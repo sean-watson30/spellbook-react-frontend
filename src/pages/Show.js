@@ -1,10 +1,10 @@
 import { useState } from  'react';
 
 const Show = ( props ) => {
-  console.log(props)
-  console.log(props.match.params.id)
+  // console.log(props)
+  // console.log(props.match.params.id)
   const id = props.match.params.id;
-  console.log(id)
+  // console.log(id)
   const spell = props.spells.find(s => s._id === id);
   // console.log(spell)
   
@@ -28,11 +28,10 @@ const Show = ( props ) => {
     props.history.push('/');
   }
 
-
   return (
-    <div className='spellDescription'>
+    <main className='spellShow'>
       <h1>{spell.name}</h1>
-      <h3>({spell.school})</h3>
+      <h3>( {spell.school} )</h3>
       
       <table>
         <tbody>
@@ -53,7 +52,7 @@ const Show = ( props ) => {
         </tbody>
       </table>
 
-      <p>{spell.description}</p>
+      <p className='spellDescription'>{spell.description}</p>
 
       <form onSubmit={handleSubmit}>
 
@@ -125,7 +124,7 @@ const Show = ( props ) => {
 
       </form>
       <button onClick={() => handleRemoveSpell(spell._id)}>Delete This Spell</button>
-    </div>
+    </main>
   )
 }
 
