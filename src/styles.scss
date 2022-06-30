@@ -60,6 +60,7 @@ body {
   padding: 2% 1% 10% 1%;
   display: flex;
   flex-direction: column;
+  text-align: center;
   align-items: center;
   background-color: rgb(129, 9, 9);
   border-bottom-left-radius: 50px;
@@ -88,6 +89,14 @@ body {
 .create {
   padding: 5%;
   margin: 5%;
+  input, textarea {
+    background-color: rgba(235, 205, 167, 0.152);
+    color: var(--text);
+    width: 70%;
+  }
+  input {
+    height: 20px;
+  }  
 }
 
 // __________Footer Component__________//
@@ -96,6 +105,8 @@ body {
   position: fixed;
   width: 100%;
   bottom: 0;
+  text-align: center;
+  background-image: linear-gradient(rgba(0, 0, 0, 0), black);
 }
 
 // __________Show Component__________//
@@ -110,6 +121,14 @@ body {
     white-space: pre-wrap;
     font-size: 18px;
   }
+  input, textarea, button {
+    background-color: rgba(235, 205, 167, 0.152);
+    color: var(--text);
+    width: 70%;
+  }
+  input {
+    height: 20px;
+  }  
 }
 .spellDescription {
   height: 40vh;
@@ -128,3 +147,20 @@ a {
 }
 
 // __________Glow Effect__________//
+
+.glowConst {
+  color: var(--text);
+  text-align: left;
+  -webkit-animation: glowConst 1s ease-in-out infinite alternate;
+  -moz-animation: glowConst 1s ease-in-out infinite alternate;
+  animation: glowConst 1s ease-in-out infinite alternate;
+}
+@-webkit-keyframes glowConst {
+  from {
+    text-shadow: 0 0 5px var(--text), 0 0 15px var(--text), 0 0 10px var(--glow1), 0 0 25px var(--glow1), 0 0 250px var(--glow1), 0 0 300px var(--glow1), 0 0 40px var(--glow1);
+  }
+  
+  to {
+    text-shadow: 0 0 10px var(--text), 0 0 20px var(--glow2), 0 0 20px var(--glow2), 0 0 30px var(--glow2), 0 0 40px var(--glow2), 0 0 50px var(--glow2), 0 0 60px var(--glow2);
+  }
+}

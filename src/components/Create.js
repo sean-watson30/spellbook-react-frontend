@@ -30,8 +30,8 @@ const Create = (props) => {
   return (
     <section className="create">
       {/* { props.user && */}
-      <h2>Transcribe a New Spell</h2>
-      <form onSubmit={handleSubmit}>
+      <h2 className="glowConst">Transcribe a New Spell</h2>
+      <form className='createForm' onSubmit={handleSubmit}>
 
         <input 
           value={newForm.level} 
