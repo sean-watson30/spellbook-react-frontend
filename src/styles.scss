@@ -135,6 +135,11 @@ body {
   overflow-y: scroll;
 }
 
+.middleContent {
+  display: flex;
+  flex-direction: row;
+}
+
 // __________Link Styling__________//
 a:link {text-decoration: none;}
 a:visited {text-decoration: none;}

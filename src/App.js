@@ -8,6 +8,7 @@ import Header from './components/Header'
 import Bookmark from './components/Bookmark';
 import Footer from './components/Footer'
 import Create from './components/Create'
+import Memorize from './components/Memorize';
 // _____Pages________
 import Show from  './pages/Show'
 
@@ -16,6 +17,7 @@ function App() {
   // const [ charClass, setCharClass ] = useState(null) // for adding priest/psionicist
   const [ spells, setSpells ] = useState(null);
   const [ spellLevel, setSpellLevel ] = useState(null);
+  const [ memorize, setMemorize ] = useState([])
   
   const URL = 'http://localhost:4000/wizSpells/' // needs to be a heroku link eventually
   
@@ -80,21 +82,26 @@ function App() {
             spellLevel={spellLevel}
             setNull={setNull}
           />
+          <div className='middleContent'>
           { spellLevel === null 
             ? <Create 
               createSpell={createSpell}
               />
             : 
-          <Route path='/:id' render={(rp) => (
-            <Show 
-            spells={spells}
-            {...rp}
-            updateSpell={updateSpell}
-            deleteSpell={deleteSpell}
-            />
-            )}>
-          </Route> 
+              <Route path='/:id' render={(rp) => (
+                <Show 
+                spells={spells}
+                {...rp}
+                updateSpell={updateSpell}
+                deleteSpell={deleteSpell}
+                />
+                )}>
+              </Route> 
           }
+          <div className='memorize'>
+            <Memorize memorize={memorize}/>
+          </div>
+          </div>
         </div>
       </div>
       <Footer />
