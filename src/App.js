@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Route } from 'react-router-dom'
 import './App.css';
 // _____Services________
-// import { auth } from './services/firebase';
+import { auth } from './services/firebase';
 // _____Components________
 import Header from './components/Header'
 import Bookmark from './components/Bookmark';
@@ -14,10 +14,19 @@ import Show from  './pages/Show'
 
 
 function App() {
-  // const [ charClass, setCharClass ] = useState(null) // for adding priest/psionicist
+  // _______Setting State____________ //
+  const [ user, setUser ] = useState(null);
+  const [ charClass, setCharClass ] = useState(null) // for adding priest/psionicist
   const [ spells, setSpells ] = useState(null);
   const [ spellLevel, setSpellLevel ] = useState(null);
   // const [ memorizedSpells, setMemorizedSpells ] = useState([])
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged(user => setUser(user));
+    return () => {
+      unsubscribe();
+    }
+  }, []);
   
   const URL = 'http://localhost:4000/wizSpells/' // needs to be a heroku link eventually
   
@@ -32,7 +41,10 @@ function App() {
     getSpells()
   }, []);
   
+  // ________CRUD Functions___________ //
+
   const createSpell = async (spell) => { 
+    if (!user) return;
     await fetch(URL, { 
       method: 'POST',
       headers: { 
@@ -44,6 +56,7 @@ function App() {
   };
         
   const updateSpell = async (updatedSpell, id) => {
+    if (!user) return;
     await fetch(URL + id, {
       method: 'PUT',
       headers: {
@@ -56,10 +69,13 @@ function App() {
   }
         
   const deleteSpell = async (id) => {
+    if (!user) return;
     await fetch(URL + id, { method: 'DELETE' }); 
     getSpells(); 
   };
-        
+  
+  // ________Event Handlers___________ //
+
   const handleLevelClick = (event) => {
     setSpellLevel(event.target.innerText)
     // console.log(spellLevel)
@@ -86,24 +102,29 @@ function App() {
         />
         <div className='mainBody'>
           <Header 
+            user={user}
             handleLevelClick={handleLevelClick}
             spellLevel={spellLevel}
             setNull={setNull}
+            charClass={charClass}
           />
           <div className='middleContent'>
           { spellLevel === null 
-            ? <Create 
+            ? 
+              <Create 
               createSpell={createSpell}
-              />
+              user={user}
+              /> 
             : 
               <Route path='/:id' render={(rp) => (
                 <Show 
-                spells={spells}
-                {...rp}
-                updateSpell={updateSpell}
-                deleteSpell={deleteSpell}
-                // onAdd={onAdd} 
-                />
+                  user={user}
+                  spells={spells}
+                  {...rp}
+                  updateSpell={updateSpell}
+                  deleteSpell={deleteSpell}
+                  // onAdd={onAdd} 
+                  />
                 )}>
               </Route> 
           }

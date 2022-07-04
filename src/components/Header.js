@@ -1,8 +1,13 @@
 import React from 'react';
 // import { Link } from 'react-router-dom';
-// import { Login, Logout } from '../services/firebase';
+import { login, logout } from '../services/firebase';
 
 const Header = (props) => {
+  const photoStyles = {
+    borderRadius: '50%',
+    height: '2.5rem',
+    margin: '0 1rem'
+  }
   return (
     <nav className='header'>
       <div>
@@ -21,11 +26,23 @@ const Header = (props) => {
       </div>
       <div>
         <ul>
-          <li>Welcome, 
-            {/* <img src="" alt="" /> */}
-          </li>
-          <li>Logout</li>
-          <li>Login</li>
+          {
+            props.user ?
+              (
+                <>
+                  <li className='login-greeting'>Welcome, {props.user.displayName} 
+                    <img 
+                      style={photoStyles}
+                      src={props.user.photoURL} 
+                      alt={props.user.displayName} 
+                    />
+                  </li>
+                  <li onClick={logout}>Logout</li>
+                </>
+              )
+            :
+            <li onClick={login}>Login</li>
+          }
         </ul>
       </div>
     </nav>

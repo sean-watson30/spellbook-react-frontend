@@ -32,7 +32,7 @@ const Show = ( props ) => {
     <main className='spellShow'>
       <h1>{spell.name}</h1>
       <h3>( {spell.school} )</h3>
-      {/* <button onClick={props.onAdd}>Memorize</button> */}
+      {/* <button onClick={handleClick}>Memorize</button> */}
       {/* <button onClick={(e) => {
             props.onAdd(e, spell._id);
           }}>Memorize</button> */}
@@ -56,77 +56,80 @@ const Show = ( props ) => {
       </table>
 
       <p className='spellDescription'>{spell.description}</p>
+      { props.user && 
+      <>
+        <form onSubmit={handleSubmit}>
 
-      <form onSubmit={handleSubmit}>
+          <input 
+            value={editForm.level} 
+            onChange={handleChange}
+            name='level'
+            type="text" 
+          />
+          <br />
+          <input 
+            value={editForm.name} 
+            onChange={handleChange}
+            name='name'
+            type="text" 
+          />
+          <br />
+          <input 
+            value={editForm.range} 
+            onChange={handleChange}
+            name='range'
+            type="text" 
+          />
+          <br />
+          <input 
+            value={editForm.duration} 
+            onChange={handleChange}
+            name='duration'
+            type="text" 
+          />
+          <br />
+          <input 
+            value={editForm.aoe} 
+            onChange={handleChange}
+            name='aoe'
+            type="text" 
+          />
+          <br />
+          <input 
+            value={editForm.components} 
+            onChange={handleChange}
+            name='components'
+            type="text" 
+          />
+          <br />
+          <input 
+            value={editForm.casting} 
+            onChange={handleChange}
+            name='casting'
+            type="text" 
+          />
+          <br />
+          <input 
+            value={editForm.saving} 
+            onChange={handleChange}
+            name='saving'
+            type="text" 
+          />
+          <br />
+          <textarea 
+            value={editForm.description}
+            onChange={handleChange}
+            name="description" 
+            cols="30" 
+            rows="10">
+          </textarea>
+          <br />
+          <input type="submit" value='Update Spell' />
 
-        <input 
-          value={editForm.level} 
-          onChange={handleChange}
-          name='level'
-          type="text" 
-        />
-        <br />
-        <input 
-          value={editForm.name} 
-          onChange={handleChange}
-          name='name'
-          type="text" 
-        />
-        <br />
-        <input 
-          value={editForm.range} 
-          onChange={handleChange}
-          name='range'
-          type="text" 
-        />
-        <br />
-        <input 
-          value={editForm.duration} 
-          onChange={handleChange}
-          name='duration'
-          type="text" 
-        />
-        <br />
-        <input 
-          value={editForm.aoe} 
-          onChange={handleChange}
-          name='aoe'
-          type="text" 
-        />
-        <br />
-        <input 
-          value={editForm.components} 
-          onChange={handleChange}
-          name='components'
-          type="text" 
-        />
-        <br />
-        <input 
-          value={editForm.casting} 
-          onChange={handleChange}
-          name='casting'
-          type="text" 
-        />
-        <br />
-        <input 
-          value={editForm.saving} 
-          onChange={handleChange}
-          name='saving'
-          type="text" 
-        />
-        <br />
-        <textarea 
-          value={editForm.description}
-          onChange={handleChange}
-          name="description" 
-          cols="30" 
-          rows="10">
-        </textarea>
-        <br />
-        <input type="submit" value='Update Spell' />
-
-      </form>
-      <button onClick={() => handleRemoveSpell(spell._id)}>Delete This Spell</button>
+        </form>
+        <button onClick={() => handleRemoveSpell(spell._id)}>Delete This Spell</button>
+      </>
+      }
     </main>
   )
 }

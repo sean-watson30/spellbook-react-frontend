@@ -48,8 +48,14 @@ body {
     display: flex;
     flex-direction: row;
     list-style: none;
+    align-items: center;
     li {
+      cursor: pointer;
       margin: 0 10px;
+    }
+    .login-greeting {
+      display: flex;
+      align-items: center;
     }
   }
 }

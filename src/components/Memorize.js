@@ -5,8 +5,8 @@ const Memorize = ({ memorizedSpells, onAdd }) => {
  
 
   return (
-    <div className='memorized'>
-      <h3>Memorize</h3>
+    <div id='memorize' className='memorized'>
+      {/* <h3>Memorize</h3> */}
 
       
       
