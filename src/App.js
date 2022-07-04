@@ -17,7 +17,7 @@ function App() {
   // const [ charClass, setCharClass ] = useState(null) // for adding priest/psionicist
   const [ spells, setSpells ] = useState(null);
   const [ spellLevel, setSpellLevel ] = useState(null);
-  const [ memorize, setMemorize ] = useState([])
+  // const [ memorizedSpells, setMemorizedSpells ] = useState([])
   
   const URL = 'http://localhost:4000/wizSpells/' // needs to be a heroku link eventually
   
@@ -69,6 +69,14 @@ function App() {
     setSpellLevel(null)
   }
 
+  // const onAdd = (e, id) => {
+  //   // console.log(id)
+  //   // setMemorizedSpells(id)
+  //   const spellArr = spells.filter((spell) => spell._id === id);
+  //   // console.log(spellArr)
+  //   setMemorizedSpells(spellArr) 
+  // };
+
   return (
     <div className="App">
       <div className='content'>
@@ -94,12 +102,16 @@ function App() {
                 {...rp}
                 updateSpell={updateSpell}
                 deleteSpell={deleteSpell}
+                // onAdd={onAdd} 
                 />
                 )}>
               </Route> 
           }
           <div className='memorize'>
-            <Memorize memorize={memorize}/>
+            <Memorize 
+              // onAdd={onAdd} 
+              // memorizedSpells={memorizedSpells}
+            />
           </div>
           </div>
         </div>

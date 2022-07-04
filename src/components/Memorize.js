@@ -1,8 +1,16 @@
 import React from 'react'
 
-const Memorize = (props) => {
+const Memorize = ({ memorizedSpells, onAdd }) => {
+  // console.log(memorizedSpells)
+ 
+
   return (
-    <div>Memorize</div>
+    <div className='memorized'>
+      <h3>Memorize</h3>
+
+      
+      
+    </div>
   )
 }
 

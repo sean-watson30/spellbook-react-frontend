@@ -5,7 +5,7 @@ import React from 'react';
 const Header = (props) => {
   return (
     <nav className='header'>
-      {/* <aside className="bookmark"> */}
+      <div>
         <ul>
           <li onClick={props.setNull}>Spells by Level</li>
           <li onClick={props.handleLevelClick}>1</li>
@@ -18,14 +18,16 @@ const Header = (props) => {
           <li onClick={props.handleLevelClick}>8</li>
           <li onClick={props.handleLevelClick}>9</li>
         </ul>
-      {/* </aside> */}
-      <ul>
-        <li>Welcome, 
-          {/* <img src="" alt="" /> */}
-        </li>
-        <li>Logout</li>
-        <li>Login</li>
-      </ul>
+      </div>
+      <div>
+        <ul>
+          <li>Welcome, 
+            {/* <img src="" alt="" /> */}
+          </li>
+          <li>Logout</li>
+          <li>Login</li>
+        </ul>
+      </div>
     </nav>
   )
 }

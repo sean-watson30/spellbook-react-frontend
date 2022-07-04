@@ -6,7 +6,7 @@ const Show = ( props ) => {
   const id = props.match.params.id;
   // console.log(id)
   const spell = props.spells.find(s => s._id === id);
-  // console.log(spell)
+  // console.log(spell._id)
   
   const [ editForm, setEditForm ] = useState(spell);
   const handleChange = (event) => {
@@ -32,7 +32,10 @@ const Show = ( props ) => {
     <main className='spellShow'>
       <h1>{spell.name}</h1>
       <h3>( {spell.school} )</h3>
-      
+      {/* <button onClick={props.onAdd}>Memorize</button> */}
+      {/* <button onClick={(e) => {
+            props.onAdd(e, spell._id);
+          }}>Memorize</button> */}
       <table>
         <tbody>
           <tr>

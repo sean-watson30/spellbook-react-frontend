@@ -40,7 +40,8 @@ body {
 .header {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  // justify-content: flex-end;
+  justify-content: space-between;
   width: 100%;
   font-size: 15px;
   ul {
@@ -80,9 +81,13 @@ body {
     }
   }
 }
+.mainBody {
+  width: 100%;
+}
 
 .content {
   display: flex;
+  // justify-content: space-around;
 }
 
 // __________Create Component__________//
@@ -111,7 +116,7 @@ body {
 
 // __________Show Component__________//
 .spellShow {
-  width: 70%;
+  width: 60%;
   padding: 2%;
   margin: 4% 5% 4% 5%;
   text-align: left;
@@ -138,6 +143,21 @@ body {
 .middleContent {
   display: flex;
   flex-direction: row;
+}
+// __________Memorize Component__________//
+.memorize {
+  display: flex;
+  flex-direction: column;
+  padding: 2%;
+  margin: 4% 1% 4% 1%;
+  width: 40%;
+  // height: 60vh;
+  overflow-y: scroll;
+  ul {
+    width: 100%;
+    list-style: none;
+  }
+  // background-image: url(../public/images/parchment.jpg);
 }
 
 // __________Link Styling__________//
