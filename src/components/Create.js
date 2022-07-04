@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from 'react';
 
 const Create = (props) => {
+  // console.log(props.user.email)
   const [ newForm, setNewForm ] = useState({
     level: '',
     name: '',

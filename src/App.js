@@ -31,7 +31,14 @@ function App() {
   const URL = 'http://localhost:4000/wizSpells/' // needs to be a heroku link eventually
   
   const getSpells = async () => {
-    const response = await fetch(URL);
+    // const token = await user.getIdToken();
+    // console.log(token)
+    const response = await fetch(URL, {
+      method: 'GET',
+      // headers: {
+      //   'Authorization': 'Bearer ' + token
+      // }
+    });
     const data = await response.json();
     // console.log(data)
     setSpells(data)
@@ -39,16 +46,18 @@ function App() {
   
   useEffect(() => {
     getSpells()
-  }, []);
+  }, [user]);
   
   // ________CRUD Functions___________ //
 
   const createSpell = async (spell) => { 
     if (!user) return;
+    const token = await user.getIdToken();
     await fetch(URL, { 
       method: 'POST',
       headers: { 
-          'Content-type': 'Application/json'
+          'Content-type': 'Application/json',
+          'Authorization': 'Bearer ' + token
         },
         body: JSON.stringify(spell)
       }); 
@@ -57,10 +66,12 @@ function App() {
         
   const updateSpell = async (updatedSpell, id) => {
     if (!user) return;
+    const token = await user.getIdToken();
     await fetch(URL + id, {
       method: 'PUT',
       headers: {
-        'Content-type': 'Application/json'
+        'Content-type': 'Application/json',
+        'Authorization': 'Bearer ' + token
       },
       body: JSON.stringify(updatedSpell)
     });
@@ -70,7 +81,13 @@ function App() {
         
   const deleteSpell = async (id) => {
     if (!user) return;
-    await fetch(URL + id, { method: 'DELETE' }); 
+    const token = await user.getIdToken();
+    await fetch(URL + id, { 
+      method: 'DELETE',
+      headers: {
+        'Authorization': 'Bearer ' + token
+      }
+    }); 
     getSpells(); 
   };
   
