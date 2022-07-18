@@ -69,7 +69,11 @@ body {
   flex-direction: column;
   text-align: center;
   align-items: center;
-  background-color: rgb(129, 9, 9);
+  background-image: url(../public/images/fabric.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  // background-color: rgb(129, 9, 9);
   border-bottom-left-radius: 50px;
   border-bottom-right-radius: 50px;
   border-style: double;
@@ -142,6 +146,7 @@ body {
   }  
 }
 .spellDescription {
+  font-family: 'Times New Roman', Times, serif;
   height: 40vh;
   overflow-y: scroll;
 }
