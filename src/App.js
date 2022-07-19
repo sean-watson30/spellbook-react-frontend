@@ -113,10 +113,10 @@ function App() {
   return (
     <div className="App">
       <div className='content'>
-        <Bookmark
-          spells={spells} 
-          spellLevel={spellLevel}
-        />
+          <Bookmark
+            spells={spells} 
+            spellLevel={spellLevel}
+          />
         <div className='mainBody'>
           <Header 
             user={user}

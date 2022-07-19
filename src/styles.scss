@@ -23,7 +23,8 @@ body {
   height: 100vh;
   flex-direction: column;
   justify-content: space-between;
-  background-image: url(../public/images/parchment.jpg);
+  // background-image: url(../public/images/parchment.jpg);
+  background-image: url(../public/images/book.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -78,7 +79,7 @@ body {
   border-bottom-right-radius: 50px;
   border-style: double;
   border-color: goldenrod;
-  margin: 0% 4% 0% 4%;
+  margin: 6% 4% 0% 4%;
   color: var(--text);
   ul {
     list-style: none;
