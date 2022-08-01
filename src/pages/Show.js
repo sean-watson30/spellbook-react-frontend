@@ -75,6 +75,13 @@ const Show = ( props ) => {
           />
           <br />
           <input 
+            value={editForm.school} 
+            onChange={handleChange}
+            name='school'
+            type="text" 
+          />
+          <br />
+          <input 
             value={editForm.range} 
             onChange={handleChange}
             name='range'

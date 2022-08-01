@@ -43,6 +43,7 @@ const Bookmark = ({ spells, spellLevel }) => {
 //     setSpellLevel(null)
 //   }
   const loaded = () => {
+    spells.sort((a, b) => a.name.localeCompare(b.name))
     return spells.map(spell => {
       if (spell.level === `${spellLevel}`) {
         return (

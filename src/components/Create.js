@@ -53,6 +53,14 @@ const Create = (props) => {
           />
           <br />
           <input 
+            value={newForm.school} 
+            onChange={handleChange}
+            name='school'
+            placeholder='school'
+            type="text" 
+          />
+          <br />
+          <input 
             value={newForm.range} 
             onChange={handleChange}
             name='range'
