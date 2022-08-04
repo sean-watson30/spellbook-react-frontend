@@ -31,13 +31,13 @@ function App() {
   const URL = 'http://localhost:4000/wizSpells/' // needs to be a heroku link eventually
   
   const getSpells = async () => {
-    // const token = await user.getIdToken();
+    const token = await user.getIdToken();
     // console.log(token)
     const response = await fetch(URL, {
       method: 'GET',
-      // headers: {
-      //   'Authorization': 'Bearer ' + token
-      // }
+      headers: {
+        'Authorization': 'Bearer ' + token
+      }
     });
     const data = await response.json();
     // console.log(data)

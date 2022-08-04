@@ -36,21 +36,21 @@ const Show = ( props ) => {
       {/* <button onClick={(e) => {
             props.onAdd(e, spell._id);
           }}>Memorize</button> */}
-      <table>
+      <table className='showTable'>
         <tbody>
           <tr>
-            <td>Range: {spell.range}</td>
-            <td>Components: {spell.components}</td>
+            <td><b>Range: </b>{spell.range}</td>
+            <td><b>Components:  </b>{spell.components}</td>
           </tr>
 
           <tr>
-            <td>Duration: {spell.duration}</td>
-            <td>Casting Time: {spell.casting}</td>
+            <td><b>Duration: </b>{spell.duration}</td>
+            <td><b>Casting Time: </b>{spell.casting}</td>
           </tr>
 
           <tr>
-            <td>Area of Effect: {spell.aoe}</td>
-            <td>Saving Throw: {spell.saving}</td>
+            <td><b>Area of Effect: </b>{spell.aoe}</td>
+            <td><b>Saving Throw: </b>{spell.saving}</td>
           </tr>
         </tbody>
       </table>
