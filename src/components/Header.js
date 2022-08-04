@@ -1,5 +1,5 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { login, logout } from '../services/firebase';
 
 const Header = (props) => {
@@ -12,7 +12,9 @@ const Header = (props) => {
     <nav className='header'>
       <div>
         <ul>
-          <li onClick={props.setNull}>Spells by Level</li>
+          <Link to='/'>
+            <li onClick={props.setNull}>Spells by Level</li>
+          </Link>
           <li onClick={props.handleLevelClick}>1</li>
           <li onClick={props.handleLevelClick}>2</li>
           <li onClick={props.handleLevelClick}>3</li>

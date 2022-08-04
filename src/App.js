@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { Route } from 'react-router-dom'
-import './App.css';
 // _____Services________
 import { auth } from './services/firebase';
 // _____Components________
@@ -102,14 +101,6 @@ function App() {
   const setNull = (event) => {
     setSpellLevel(null)
   }
-
-  // const onAdd = (e, id) => {
-  //   // console.log(id)
-  //   // setMemorizedSpells(id)
-  //   const spellArr = spells.filter((spell) => spell._id === id);
-  //   // console.log(spellArr)
-  //   setMemorizedSpells(spellArr) 
-  // };
 
   return (
     <div className="App">
