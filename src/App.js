@@ -28,8 +28,10 @@ function App() {
   }, []);
   
   const URL = 'http://localhost:4000/wizSpells/' // needs to be a heroku link eventually
+  // const URL = 'http://localhost:4000/priSpells/' // needs to be a heroku link eventually
   
   const getSpells = async () => {
+    // const URL = 'http://localhost:4000/priSpells/'
     const token = await user.getIdToken();
     // console.log(token)
     const response = await fetch(URL, {

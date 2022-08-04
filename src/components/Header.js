@@ -10,6 +10,9 @@ const Header = (props) => {
   }
   return (
     <nav className='header'>
+      {/* { if (props.charClass == wizard) {}} */}
+      {/* { else if (props.charClass == priest) {}} */}
+      {/* { else {}} */}
       <div>
         <ul>
           <Link to='/'>
