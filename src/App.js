@@ -65,6 +65,7 @@ function App() {
   };
         
   const updateSpell = async (updatedSpell, id) => {
+    // console.log(user.email)
     if (!user) return;
     const token = await user.getIdToken();
     await fetch(URL + id, {

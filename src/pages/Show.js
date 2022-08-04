@@ -54,9 +54,12 @@ const Show = ( props ) => {
           </tr>
         </tbody>
       </table>
+          {/* {console.log(props.user.email)} */}
 
       <p className='spellDescription'>{spell.description}</p>
       { props.user && 
+        props.user.email === 'sean_watson30@me.com' 
+      ?
       <>
         <form onSubmit={handleSubmit}>
 
@@ -136,6 +139,8 @@ const Show = ( props ) => {
         </form>
         <button onClick={() => handleRemoveSpell(spell._id)}>Delete This Spell</button>
       </>
+      : 
+      <></>
       }
     </main>
   )

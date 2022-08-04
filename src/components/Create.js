@@ -120,7 +120,7 @@ const Create = (props) => {
         </form>
         </>
         :
-        <h1>Welcome to the Dungeons {`&`} Dragons (2e) Spellbook!</h1>
+        <h1 id="welcome">Welcome to the Dungeons {`&`} Dragons (2e) Spellbook!</h1>
       }
     </section>
   )

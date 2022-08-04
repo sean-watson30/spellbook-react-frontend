@@ -116,6 +116,10 @@ body {
   }  
 }
 
+#welcome {
+  padding: 45% 5%;
+}
+
 // __________Footer Component__________//
 .footer {
   width: 100%;
@@ -130,7 +134,7 @@ body {
 .spellShow {
   width: 60%;
   padding: 2%;
-  margin: 4% 5% 4% 5%;
+  margin: 10% 5% 4% 5%;
   text-align: left;
   height: 70vh;
   overflow-y: scroll;
