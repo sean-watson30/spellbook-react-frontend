@@ -1,4 +1,5 @@
 import { useState } from  'react';
+// import { Link } from 'react-router-dom';
 
 const Show = ( props ) => {
   // console.log(props)
@@ -60,7 +61,7 @@ const Show = ( props ) => {
       { props.user && 
         props.user.email === 'sean_watson30@me.com' 
       ?
-      <>
+      <div>
         <form onSubmit={handleSubmit}>
 
           <input 
@@ -138,7 +139,7 @@ const Show = ( props ) => {
 
         </form>
         <button onClick={() => handleRemoveSpell(spell._id)}>Delete This Spell</button>
-      </>
+      </div>
       : 
       <></>
       }

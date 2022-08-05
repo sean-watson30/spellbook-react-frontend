@@ -3,9 +3,11 @@ import { useState } from 'react';
 
 const Create = (props) => {
   // console.log(props.user.email)
+  const [ charClass, setCharClass ] = useState()
   const [ newForm, setNewForm ] = useState({
     level: '',
     name: '',
+    school: '',
     range: '',
     duration: '',
     aoe: '',
@@ -22,9 +24,18 @@ const Create = (props) => {
     });
   };
 
+  const handleClass = (event) => {
+    setCharClass(event.target.innerText)
+  }
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    props.createSpell(newForm);
+    // props.createSpell(newForm);
+    if (charClass === 'Wizard') {
+      props.createWizSpell(newForm);
+    } else {
+      props.createPriSpell(newForm);
+    }
     props.history.push('/');
   }
 
@@ -34,6 +45,11 @@ const Create = (props) => {
         ?
         <>
           <h2 className="glowConst">Transcribe a New Spell</h2>
+          <ul>
+            <li className="create-wiz" onClick={handleClass}>Wizard</li>
+            <li>|</li>
+            <li className="create-pri" onClick={handleClass}>Priest</li>
+          </ul>
           <form className='createForm' onSubmit={handleSubmit}>
 
           <input 

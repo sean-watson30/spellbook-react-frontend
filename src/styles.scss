@@ -106,6 +106,16 @@ body {
 .create {
   padding: 5%;
   margin: 5%;
+  ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    li {
+      margin: 0 2%;
+      cursor: pointer;
+    }
+  }
   input, textarea {
     background-color: rgba(235, 205, 167, 0.152);
     color: var(--text);
@@ -158,8 +168,8 @@ body {
 
 .spellDescription {
   font-family: 'Times New Roman', Times, serif;
-  height: 40vh;
-  overflow-y: scroll;
+  // height: 50vh;
+  // overflow-y: scroll;
 }
 
 .middleContent {

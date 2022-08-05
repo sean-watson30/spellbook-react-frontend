@@ -17,7 +17,7 @@ function App() {
   const [ user, setUser ] = useState(null);
   const [ spells, setSpells ] = useState(null);
   const [ spellLevel, setSpellLevel ] = useState(null);
-  const [ pathURL, setPathURL ] = useState('wizSpells');
+  const [ pathURL, setPathURL ] = useState(null);
   // const [ memorizedSpells, setMemorizedSpells ] = useState([])
 
   useEffect(() => {
@@ -27,8 +27,6 @@ function App() {
     }
   }, []);
 
-
-  // const URL = 'http://localhost:4000/wizSpells/' // needs to be a heroku link eventually
   const URL = `http://localhost:4000/${pathURL}/` // needs to be a heroku link eventually
 
   const getWizSpells = async () => {
@@ -71,18 +69,19 @@ function App() {
   //   setSpells(data)
   // }
   
-  // useEffect(() => {
-  //   getPriSpells()
-  //   getWizSpells()
-  //   // getSpells()
-  // }, [user]);
+  useEffect(() => {
+    getPriSpells()
+    getWizSpells()
+    // getSpells()
+  }, [user]);
   
   // ________CRUD Functions___________ //
 
-  const createSpell = async (spell) => { 
+  const createWizSpell = async (spell) => { 
     if (!user) return;
     const token = await user.getIdToken();
-    await fetch(URL, { 
+    const wizURL = 'http://localhost:4000/wizSpells/'
+    await fetch(wizURL, { 
       method: 'POST',
       headers: { 
           'Content-type': 'Application/json',
@@ -91,6 +90,22 @@ function App() {
         body: JSON.stringify(spell)
       }); 
     getWizSpells();
+    // getPriSpells();
+    // getSpells();
+  };
+  const createPriSpell = async (spell) => { 
+    if (!user) return;
+    const token = await user.getIdToken();
+    const priURL = 'http://localhost:4000/priSpells/'
+    await fetch(priURL, { 
+      method: 'POST',
+      headers: { 
+          'Content-type': 'Application/json',
+          'Authorization': 'Bearer ' + token
+        },
+        body: JSON.stringify(spell)
+      }); 
+    // getWizSpells();
     getPriSpells();
     // getSpells();
   };
@@ -110,7 +125,6 @@ function App() {
     getWizSpells();
     getPriSpells();
     // getSpells();
-    // console.log(updatedSpell)
   }
         
   const deleteSpell = async (id) => {
@@ -167,7 +181,9 @@ function App() {
           { spellLevel === null 
             ? 
               <Create 
-              createSpell={createSpell}
+              // createSpell={createSpell}
+              createWizSpell={createWizSpell}
+              createPriSpell={createPriSpell}
               user={user}
               /> 
             : 
@@ -178,7 +194,7 @@ function App() {
                   {...rp}
                   updateSpell={updateSpell}
                   deleteSpell={deleteSpell}
-                  />
+                />
                 )}>
               </Route> 
           }
