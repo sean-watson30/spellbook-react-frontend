@@ -10,9 +10,21 @@ const Header = (props) => {
   }
   return (
     <nav className='header'>
-      {/* { if (props.charClass == wizard) {}} */}
-      {/* { else if (props.charClass == priest) {}} */}
-      {/* { else {}} */}
+      <div>
+        <ul>
+          <li>
+            <Link to='/'>
+              <span onClick={props.getWizSpells}>Wizard</span>
+            </Link>
+          </li>
+          <li>|</li>
+          <li>
+            <Link to='/'>
+              <span onClick={props.getPriSpells}>Priest</span>
+            </Link>
+          </li>
+        </ul>
+      </div>
       <div>
         <ul>
           <Link to='/'>

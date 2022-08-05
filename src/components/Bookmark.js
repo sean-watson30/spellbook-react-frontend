@@ -6,42 +6,38 @@ import { Link } from 'react-router-dom'
 // import List from "./List";
 // import Create from "../components/Create";
 
-const Bookmark = ({ spells, spellLevel }) => {
-//   const [ spells, setSpells ] = useState(null);
+// const Bookmark = ({ spells, spellLevel }) => {
+const Bookmark = ({ spells, spellLevel, getPriSpells, getWizSpells }) => {
+// const Bookmark = ({ user, spellLevel }) => {
+  // const [ spells, setSpells ] = useState(null)
 
-//   const URL = 'http://localhost:4000/wizSpells/' // needs to be a heroku link eventually
+  // const getWizSpells = async () => {
+  //   const token = await user.getIdToken();
+  //   const wizURL = 'http://localhost:4000/wizSpells/'
+  //   const response = await fetch(wizURL, {
+  //     method: 'GET',
+  //     headers: {
+  //       'Authorization': 'Bearer ' + token
+  //     }
+  //   });
+  //   const data = await response.json();
+  //   setSpells(data)
+  //   console.log(data)
+  // }
+  // const getPriSpells = async () => {
+  //   const token = await user.getIdToken();
+  //   const priURL = 'http://localhost:4000/priSpells/'
+  //   const response = await fetch(priURL, {
+  //     method: 'GET',
+  //     headers: {
+  //       'Authorization': 'Bearer ' + token
+  //     }
+  //   });
+  //   const data = await response.json();
+  //   setSpells(data)
+  //   console.log(data)
+  // }
 
-//   const getSpells = async () => {
-//     const response = await fetch(URL);
-//     const data = await response.json();
-//     // console.log(data)
-//     setSpells(data)
-//   }
-
-//   useEffect(() => {
-//     getSpells()
-//   }, []);
-
-//   const createSpell = async (spell) => { 
-//     await fetch(URL, { 
-//       method: 'POST',
-//       headers: { 
-//         'Content-type': 'Application/json'
-//       },
-//       body: JSON.stringify(spell)
-//     }); 
-//     getSpells();
-//   };
-
-//   const [ spellLevel, setSpellLevel ] = useState(null);
-//   const handleClick = (event) => {
-//     setSpellLevel(event.target.innerText)
-//     // console.log(spellLevel)
-//     // console.log(event.target.innerText)
-//   }
-//   const setNull = (event) => {
-//     setSpellLevel(null)
-//   }
   const loaded = () => {
     spells.sort((a, b) => a.name.localeCompare(b.name))
     return spells.map(spell => {
@@ -64,6 +60,12 @@ const Bookmark = ({ spells, spellLevel }) => {
   return(
 //     <main className="main">
       <aside className="bookmark">
+        {/* <Link to='/'>
+          <span onClick={getWizSpells}>Wizard</span>
+        </Link>
+        <Link to='/'>
+          <span onClick={getPriSpells}>Priest</span>
+        </Link> */}
         <section>
           { spellLevel
             ? <h3>Level {spellLevel} Spells</h3>
@@ -74,34 +76,7 @@ const Bookmark = ({ spells, spellLevel }) => {
             : <ul>{loading()}</ul> 
           }
         </section>
-{/* //           <ul>
-//             <li onClick={setNull}>Spells by Level</li>
-//             <li onClick={handleClick}>1</li>
-//             <li onClick={handleClick}>2</li>
-//             <li onClick={handleClick}>3</li>
-//             <li onClick={handleClick}>4</li>
-//             <li onClick={handleClick}>5</li>
-//             <li onClick={handleClick}>6</li>
-//             <li onClick={handleClick}>7</li>
-//             <li onClick={handleClick}>8</li>
-//             <li onClick={handleClick}>9</li>
-//           </ul> */}
         </aside>
-   
-//         <div>
-          // { spellLevel === null 
-          //   ? <Create 
-          //     createSpell={createSpell}
-          //     />
-          //   : <List 
-          //     spellLevel={spellLevel} 
-          //     spells={spells}
-          //     URL={URL}
-          //     getSpells={getSpells}
-          //   />
-          // }
-        // </div>
-//     </main>
   )
 }
 export default Bookmark;

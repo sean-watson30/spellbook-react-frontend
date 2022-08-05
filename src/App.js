@@ -15,9 +15,9 @@ import Show from  './pages/Show'
 function App() {
   // _______Setting State____________ //
   const [ user, setUser ] = useState(null);
-  const [ charClass, setCharClass ] = useState(null) // for adding priest/psionicist
   const [ spells, setSpells ] = useState(null);
   const [ spellLevel, setSpellLevel ] = useState(null);
+  const [ pathURL, setPathURL ] = useState('wizSpells');
   // const [ memorizedSpells, setMemorizedSpells ] = useState([])
 
   useEffect(() => {
@@ -26,28 +26,56 @@ function App() {
       unsubscribe();
     }
   }, []);
-  
-  const URL = 'http://localhost:4000/wizSpells/' // needs to be a heroku link eventually
-  // const URL = 'http://localhost:4000/priSpells/' // needs to be a heroku link eventually
-  
-  const getSpells = async () => {
-    // const URL = 'http://localhost:4000/priSpells/'
+
+
+  // const URL = 'http://localhost:4000/wizSpells/' // needs to be a heroku link eventually
+  const URL = `http://localhost:4000/${pathURL}/` // needs to be a heroku link eventually
+
+  const getWizSpells = async () => {
     const token = await user.getIdToken();
-    // console.log(token)
-    const response = await fetch(URL, {
+    setPathURL('wizSpells')
+    const wizURL = 'http://localhost:4000/wizSpells/'
+    const response = await fetch(wizURL, {
       method: 'GET',
       headers: {
         'Authorization': 'Bearer ' + token
       }
     });
     const data = await response.json();
-    // console.log(data)
     setSpells(data)
   }
+  const getPriSpells = async () => {
+    const token = await user.getIdToken();
+    setPathURL('priSpells')
+    const priURL = 'http://localhost:4000/priSpells/'
+    const response = await fetch(priURL, {
+      method: 'GET',
+      headers: {
+        'Authorization': 'Bearer ' + token
+      }
+    });
+    const data = await response.json();
+    setSpells(data)
+  }
+
+  // const getSpells = async () => {
+  //   const token = await user.getIdToken();
+  //   // console.log(URL)
+  //   const response = await fetch(URL, {
+  //     method: 'GET',
+  //     headers: {
+  //       'Authorization': 'Bearer ' + token
+  //     }
+  //   });
+  //   const data = await response.json();
+  //   setSpells(data)
+  // }
   
-  useEffect(() => {
-    getSpells()
-  }, [user]);
+  // useEffect(() => {
+  //   getPriSpells()
+  //   getWizSpells()
+  //   // getSpells()
+  // }, [user]);
   
   // ________CRUD Functions___________ //
 
@@ -62,7 +90,9 @@ function App() {
         },
         body: JSON.stringify(spell)
       }); 
-    getSpells();
+    getWizSpells();
+    getPriSpells();
+    // getSpells();
   };
         
   const updateSpell = async (updatedSpell, id) => {
@@ -77,7 +107,9 @@ function App() {
       },
       body: JSON.stringify(updatedSpell)
     });
-    getSpells();
+    getWizSpells();
+    getPriSpells();
+    // getSpells();
     // console.log(updatedSpell)
   }
         
@@ -90,16 +122,17 @@ function App() {
         'Authorization': 'Bearer ' + token
       }
     }); 
-    getSpells(); 
+    getWizSpells(); 
+    getPriSpells(); 
+    // getSpells(); 
   };
   
   // ________Event Handlers___________ //
 
   const handleLevelClick = (event) => {
     setSpellLevel(event.target.innerText)
-    // console.log(spellLevel)
-    // console.log(event.target.innerText)
   }
+
   const setNull = (event) => {
     setSpellLevel(null)
   }
@@ -109,15 +142,26 @@ function App() {
       <div className='content'>
           <Bookmark
             spells={spells} 
+            user={user}
+            // selectURL={selectURL}
+            getPriSpells={getPriSpells}
+            getWizSpells={getWizSpells}
             spellLevel={spellLevel}
-          />
+            // charClass={charClass}
+            />
         <div className='mainBody'>
           <Header 
             user={user}
+            getPriSpells={getPriSpells}
+            getWizSpells={getWizSpells}
+            // selectURL={selectURL}
+            // getPriSpells={getPriSpells}
+            // getWizSpells={getWizSpells}
+            // handleClassClick={handleClassClick}
             handleLevelClick={handleLevelClick}
             spellLevel={spellLevel}
             setNull={setNull}
-            charClass={charClass}
+            // charClass={charClass}
           />
           <div className='middleContent'>
           { spellLevel === null 
@@ -134,15 +178,12 @@ function App() {
                   {...rp}
                   updateSpell={updateSpell}
                   deleteSpell={deleteSpell}
-                  // onAdd={onAdd} 
                   />
                 )}>
               </Route> 
           }
           <div className='memorize'>
             <Memorize 
-              // onAdd={onAdd} 
-              // memorizedSpells={memorizedSpells}
             />
           </div>
           </div>
