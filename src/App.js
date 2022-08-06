@@ -27,12 +27,14 @@ function App() {
     }
   }, []);
 
-  const URL = `http://localhost:4000/${pathURL}/` // needs to be a heroku link eventually
+  // const URL = `http://localhost:4000/${pathURL}/`
+  const URL = `https://spellbook2.herokuapp.com/${pathURL}/`
 
   const getWizSpells = async () => {
     const token = await user.getIdToken();
     setPathURL('wizSpells')
-    const wizURL = 'http://localhost:4000/wizSpells/'
+    // const wizURL = 'http://localhost:4000/wizSpells/'
+    const wizURL = 'https://spellbook2.herokuapp.com/wizSpells/'
     const response = await fetch(wizURL, {
       method: 'GET',
       headers: {
@@ -45,7 +47,8 @@ function App() {
   const getPriSpells = async () => {
     const token = await user.getIdToken();
     setPathURL('priSpells')
-    const priURL = 'http://localhost:4000/priSpells/'
+    // const priURL = 'http://localhost:4000/priSpells/'
+    const priURL = 'https://spellbook2.herokuapp.com/priSpells/'
     const response = await fetch(priURL, {
       method: 'GET',
       headers: {
@@ -80,7 +83,8 @@ function App() {
   const createWizSpell = async (spell) => { 
     if (!user) return;
     const token = await user.getIdToken();
-    const wizURL = 'http://localhost:4000/wizSpells/'
+    // const wizURL = 'http://localhost:4000/wizSpells/'
+    const wizURL = 'https://spellbook2.herokuapp.com/wizSpells/'
     await fetch(wizURL, { 
       method: 'POST',
       headers: { 
@@ -90,13 +94,12 @@ function App() {
         body: JSON.stringify(spell)
       }); 
     getWizSpells();
-    // getPriSpells();
-    // getSpells();
   };
   const createPriSpell = async (spell) => { 
     if (!user) return;
     const token = await user.getIdToken();
-    const priURL = 'http://localhost:4000/priSpells/'
+    // const priURL = 'http://localhost:4000/priSpells/'
+    const priURL = 'https://spellbook2.herokuapp.com/priSpells/'
     await fetch(priURL, { 
       method: 'POST',
       headers: { 
@@ -105,9 +108,7 @@ function App() {
         },
         body: JSON.stringify(spell)
       }); 
-    // getWizSpells();
     getPriSpells();
-    // getSpells();
   };
         
   const updateSpell = async (updatedSpell, id) => {
@@ -157,31 +158,23 @@ function App() {
           <Bookmark
             spells={spells} 
             user={user}
-            // selectURL={selectURL}
             getPriSpells={getPriSpells}
             getWizSpells={getWizSpells}
             spellLevel={spellLevel}
-            // charClass={charClass}
             />
         <div className='mainBody'>
           <Header 
             user={user}
             getPriSpells={getPriSpells}
             getWizSpells={getWizSpells}
-            // selectURL={selectURL}
-            // getPriSpells={getPriSpells}
-            // getWizSpells={getWizSpells}
-            // handleClassClick={handleClassClick}
             handleLevelClick={handleLevelClick}
             spellLevel={spellLevel}
             setNull={setNull}
-            // charClass={charClass}
           />
           <div className='middleContent'>
           { spellLevel === null 
             ? 
               <Create 
-              // createSpell={createSpell}
               createWizSpell={createWizSpell}
               createPriSpell={createPriSpell}
               user={user}
