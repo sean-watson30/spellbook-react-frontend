@@ -31,29 +31,29 @@ function App() {
   const URL = `https://spellbook2.herokuapp.com/${pathURL}/`
 
   const getWizSpells = async () => {
-    const token = await user.getIdToken();
+    // const token = await user.getIdToken();
     setPathURL('wizSpells')
     // const wizURL = 'http://localhost:4000/wizSpells/'
     const wizURL = 'https://spellbook2.herokuapp.com/wizSpells/'
     const response = await fetch(wizURL, {
       method: 'GET',
-      headers: {
-        'Authorization': 'Bearer ' + token
-      }
+      // headers: {
+      //   'Authorization': 'Bearer ' + token
+      // }
     });
     const data = await response.json();
     setSpells(data)
   }
   const getPriSpells = async () => {
-    const token = await user.getIdToken();
+    // const token = await user.getIdToken();
     setPathURL('priSpells')
     // const priURL = 'http://localhost:4000/priSpells/'
     const priURL = 'https://spellbook2.herokuapp.com/priSpells/'
     const response = await fetch(priURL, {
       method: 'GET',
-      headers: {
-        'Authorization': 'Bearer ' + token
-      }
+      // headers: {
+      //   'Authorization': 'Bearer ' + token
+      // }
     });
     const data = await response.json();
     setSpells(data)
@@ -82,7 +82,7 @@ function App() {
 
   const createWizSpell = async (spell) => { 
     if (!user) return;
-    const token = await user.getIdToken();
+    // const token = await user.getIdToken();
     // const wizURL = 'http://localhost:4000/wizSpells/'
     const wizURL = 'https://spellbook2.herokuapp.com/wizSpells/'
     await fetch(wizURL, { 
