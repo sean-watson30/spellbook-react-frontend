@@ -54,7 +54,9 @@ const Header = (props) => {
                       alt={props.user.displayName} 
                     />
                   </li>
-                  <li onClick={logout}>Logout</li>
+                  <Link to='/'>
+                    <li onClick={logout}>Logout</li>
+                  </Link>
                 </>
               )
             :
