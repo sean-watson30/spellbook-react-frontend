@@ -80,9 +80,12 @@ body {
   border-bottom-right-radius: 50px;
   border-style: double;
   border-color: goldenrod;
-  margin: 6% 4% 0% 4%;
+  margin: 1.5% 4% 6% 4%;
   color: var(--text);
   ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     list-style: none;
     height: 55vh;
     overflow-y: scroll;
@@ -221,3 +224,19 @@ a {
 //     text-shadow: 0 0 10px var(--text), 0 0 20px var(--glow2), 0 0 20px var(--glow2), 0 0 30px var(--glow2), 0 0 40px var(--glow2), 0 0 50px var(--glow2), 0 0 60px var(--glow2);
 //   }
 // }
+
+@media screen and (max-width: 1024px) {
+  .bookmark {
+    margin-top: 0%;
+  }
+}
+@media screen and (max-width: 786px) {
+  .bookmark {
+    margin-top: 0%;
+  }
+  .header {
+    ul{
+      margin: 2px 0px;
+    }
+  }
+}

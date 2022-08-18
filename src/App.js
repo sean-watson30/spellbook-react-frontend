@@ -87,10 +87,10 @@ function App() {
     const wizURL = 'https://spellbook2.herokuapp.com/wizSpells/'
     await fetch(wizURL, { 
       method: 'POST',
-      headers: { 
-          'Content-type': 'Application/json',
-          'Authorization': 'Bearer ' + token
-        },
+      // headers: { 
+      //     'Content-type': 'Application/json',
+      //     'Authorization': 'Bearer ' + token
+      //   },
         body: JSON.stringify(spell)
       }); 
     getWizSpells();
@@ -154,7 +154,17 @@ function App() {
 
   return (
     <div className="App">
+        <Header 
+          user={user}
+          getPriSpells={getPriSpells}
+          getWizSpells={getWizSpells}
+          handleLevelClick={handleLevelClick}
+          spellLevel={spellLevel}
+          setNull={setNull}
+        />
       <div className='content'>
+        <div className='mainBody'>
+          <div className='middleContent'>
           <Bookmark
             spells={spells} 
             user={user}
@@ -162,16 +172,6 @@ function App() {
             getWizSpells={getWizSpells}
             spellLevel={spellLevel}
             />
-        <div className='mainBody'>
-          <Header 
-            user={user}
-            getPriSpells={getPriSpells}
-            getWizSpells={getWizSpells}
-            handleLevelClick={handleLevelClick}
-            spellLevel={spellLevel}
-            setNull={setNull}
-          />
-          <div className='middleContent'>
           { spellLevel === null 
             ? 
               <Create 
