@@ -14,9 +14,9 @@ import Show from  './pages/Show'
 
 function App() {
   // _______Setting State____________ //
-  const [ user, setUser ] = useState(null);
-  const [ spells, setSpells ] = useState(null);
-  const [ spellLevel, setSpellLevel ] = useState(null);
+  const [ user, setUser ] = useState(null); //object
+  const [ spells, setSpells ] = useState(null); // object
+  const [ spellLevel, setSpellLevel ] = useState(null); // string
   const [ pathURL, setPathURL ] = useState(null);
   // const [ memorizedSpells, setMemorizedSpells ] = useState([])
 
