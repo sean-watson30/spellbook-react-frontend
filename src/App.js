@@ -168,53 +168,6 @@ function App() {
       updateSpell={updateSpell}
       deleteSpell={deleteSpell}
     />
-    // <div className="App">
-    //     <Header 
-    //       user={user}
-    //       getPriSpells={getPriSpells}
-    //       getWizSpells={getWizSpells}
-    //       handleLevelClick={handleLevelClick}
-    //       spellLevel={spellLevel}
-    //       setNull={setNull}
-    //     />
-    //   <div className='content'>
-    //     <div className='mainBody'>
-    //       <div className='middleContent'>
-    //       <Bookmark
-    //         spells={spells} 
-    //         user={user}
-    //         getPriSpells={getPriSpells}
-    //         getWizSpells={getWizSpells}
-    //         spellLevel={spellLevel}
-    //         />
-    //       { spellLevel === null 
-    //         ? 
-    //           <Create 
-    //           createWizSpell={createWizSpell}
-    //           createPriSpell={createPriSpell}
-    //           user={user}
-    //           /> 
-    //         : 
-    //           <Route path='/:id' render={(rp) => (
-    //             <Show 
-    //               user={user}
-    //               spells={spells}
-    //               {...rp}
-    //               updateSpell={updateSpell}
-    //               deleteSpell={deleteSpell}
-    //             />
-    //             )}>
-    //           </Route> 
-    //       }
-    //       <div className='memorize'>
-    //         <Memorize 
-    //         />
-    //       </div>
-    //       </div>
-    //     </div>
-    //   </div>
-    //   <Footer />
-    // </div>
   );
 }
 
