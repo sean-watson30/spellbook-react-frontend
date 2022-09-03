@@ -1,22 +1,23 @@
 import { useState, useEffect } from 'react';
-import { Route } from 'react-router-dom'
+// import { Route } from 'react-router-dom'
 // _____Services________
 import { auth } from './services/firebase';
 // _____Components________
-import Header from './components/Header'
-import Bookmark from './components/Bookmark';
-import Footer from './components/Footer'
-import Create from './components/Create'
-import Memorize from './components/Memorize';
+// import Header from './components/Header'
+// import Bookmark from './components/Bookmark';
+// import Footer from './components/Footer'
+// import Create from './components/Create'
+// import Memorize from './components/Memorize';
 // _____Pages________
-import Show from  './pages/Show'
+// import Show from  './pages/Show'
+import Main from './pages/Main';
 
 
 function App() {
   // _______Setting State____________ //
   const [ user, setUser ] = useState(null); //object
   const [ spells, setSpells ] = useState(null); // object
-  const [ spellLevel, setSpellLevel ] = useState(null); // string
+  const [ spellLevel, setSpellLevel ] = useState(''); // string instead of null
   const [ pathURL, setPathURL ] = useState(null);
   // const [ memorizedSpells, setMemorizedSpells ] = useState([])
 
@@ -149,57 +150,71 @@ function App() {
   }
 
   const setNull = (event) => {
-    setSpellLevel(null)
+    setSpellLevel('')
+    // setSpellLevel(null)
   }
 
   return (
-    <div className="App">
-        <Header 
-          user={user}
-          getPriSpells={getPriSpells}
-          getWizSpells={getWizSpells}
-          handleLevelClick={handleLevelClick}
-          spellLevel={spellLevel}
-          setNull={setNull}
-        />
-      <div className='content'>
-        <div className='mainBody'>
-          <div className='middleContent'>
-          <Bookmark
-            spells={spells} 
-            user={user}
-            getPriSpells={getPriSpells}
-            getWizSpells={getWizSpells}
-            spellLevel={spellLevel}
-            />
-          { spellLevel === null 
-            ? 
-              <Create 
-              createWizSpell={createWizSpell}
-              createPriSpell={createPriSpell}
-              user={user}
-              /> 
-            : 
-              <Route path='/:id' render={(rp) => (
-                <Show 
-                  user={user}
-                  spells={spells}
-                  {...rp}
-                  updateSpell={updateSpell}
-                  deleteSpell={deleteSpell}
-                />
-                )}>
-              </Route> 
-          }
-          <div className='memorize'>
-            <Memorize 
-            />
-          </div>
-          </div>
-        </div>
-      </div>
-      <Footer />
-    </div>
+    <Main
+      user={user}
+      getPriSpells={getPriSpells}
+      getWizSpells={getWizSpells}
+      handleLevelClick={handleLevelClick}
+      spellLevel={spellLevel}
+      setNull={setNull}
+      spells={spells} 
+      createWizSpell={createWizSpell}
+      createPriSpell={createPriSpell}
+      updateSpell={updateSpell}
+      deleteSpell={deleteSpell}
+    />
+    // <div className="App">
+    //     <Header 
+    //       user={user}
+    //       getPriSpells={getPriSpells}
+    //       getWizSpells={getWizSpells}
+    //       handleLevelClick={handleLevelClick}
+    //       spellLevel={spellLevel}
+    //       setNull={setNull}
+    //     />
+    //   <div className='content'>
+    //     <div className='mainBody'>
+    //       <div className='middleContent'>
+    //       <Bookmark
+    //         spells={spells} 
+    //         user={user}
+    //         getPriSpells={getPriSpells}
+    //         getWizSpells={getWizSpells}
+    //         spellLevel={spellLevel}
+    //         />
+    //       { spellLevel === null 
+    //         ? 
+    //           <Create 
+    //           createWizSpell={createWizSpell}
+    //           createPriSpell={createPriSpell}
+    //           user={user}
+    //           /> 
+    //         : 
+    //           <Route path='/:id' render={(rp) => (
+    //             <Show 
+    //               user={user}
+    //               spells={spells}
+    //               {...rp}
+    //               updateSpell={updateSpell}
+    //               deleteSpell={deleteSpell}
+    //             />
+    //             )}>
+    //           </Route> 
+    //       }
+    //       <div className='memorize'>
+    //         <Memorize 
+    //         />
+    //       </div>
+    //       </div>
+    //     </div>
+    //   </div>
+    //   <Footer />
+    // </div>
   );
 }
 

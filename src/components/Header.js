@@ -1,31 +1,47 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { login, logout } from '../services/firebase';
+// import { login, logout } from '../services/firebase';
+
+import Welcome from './Welcome';
+import SpellsByLevel from './SpellsByLevel';
 
 const Header = (props) => {
-  const photoStyles = {
-    borderRadius: '50%',
-    height: '2.5rem',
-    margin: '0 1rem'
+  const [ charClass, setCharClass ] = useState('')
+  // const photoStyles = {
+  //   borderRadius: '50%',
+  //   height: '2.5rem',
+  //   margin: '0 1rem'
+  // }
+
+  const selectClass = (event) => {
+    setCharClass(event.target.innerText)
+    if (charClass === 'Wizard') {
+      props.getWizSpells()
+    } else if (charClass === 'Priest') {
+      props.getPriSpells()
+    }
   }
+
   return (
     <nav className='header'>
       <div>
         <ul>
           <li>
             <Link to='/'>
-              <span onClick={props.getWizSpells}>Wizard</span>
+              {/* <span onClick={props.getWizSpells}>Wizard</span> */}
+              <span onClick={ selectClass }>Wizard</span>
             </Link>
           </li>
           <li>|</li>
           <li>
             <Link to='/'>
-              <span onClick={props.getPriSpells}>Priest</span>
+              {/* <span onClick={props.getPriSpells}>Priest</span> */}
+              <span onClick={ selectClass }>Priest</span>             
             </Link>
           </li>
         </ul>
       </div>
-      <div>
+      {/* <div>
         <ul>
           <Link to='/'>
             <li onClick={props.setNull}>Spells by Level</li>
@@ -40,8 +56,14 @@ const Header = (props) => {
           <li onClick={props.handleLevelClick}>8</li>
           <li onClick={props.handleLevelClick}>9</li>
         </ul>
-      </div>
-      <div>
+      </div> */}
+      <SpellsByLevel 
+        charClass={ charClass } 
+        handleLevelClick={ props.handleLevelClick } 
+        setNull={ props.setNull } 
+      />
+      <Welcome user={ props.user }/>
+      {/* <div>
         <ul>
           {
             props.user ?
@@ -63,7 +85,7 @@ const Header = (props) => {
             <li onClick={login}>Login</li>
           }
         </ul>
-      </div>
+      </div> */}
     </nav>
   )
 }

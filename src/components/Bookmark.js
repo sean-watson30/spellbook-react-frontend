@@ -23,18 +23,18 @@ const Bookmark = ({ spells, spellLevel }) => {
   }
 
   return(
-      <aside className="bookmark">
-        <section>
-          { spellLevel
-            ? <h3>Level {spellLevel} Spells</h3>
-            : <h3>Select Class &amp; Spell Level</h3>
-          }
-          { spells 
-            ? <ul className='listDisplay' style={ {textAlign: 'left'} }>{loaded()}</ul>
-            : <ul>{loading()}</ul> 
-          }
-        </section>
-        </aside>
+    <aside className="bookmark">
+      <section>
+        { spellLevel
+          ? <h3>Level {spellLevel} Spells</h3>
+          : <h3>Select Class &amp; Spell Level</h3>
+        }
+        { spells 
+          ? <ul className='listDisplay' style={ {textAlign: 'left'} }>{loaded()}</ul>
+          : <ul>{loading()}</ul> 
+        }
+      </section>
+    </aside>
   )
 }
 export default Bookmark;
