@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-// import { login, logout } from '../services/firebase';
+import { login, logout } from '../services/firebase';
 
 import Welcome from './Welcome';
 import SpellsByLevel from './SpellsByLevel';
 
 const Header = (props) => {
   const [ charClass, setCharClass ] = useState('')
-  // const photoStyles = {
-  //   borderRadius: '50%',
-  //   height: '2.5rem',
-  //   margin: '0 1rem'
-  // }
+  const photoStyles = {
+    borderRadius: '50%',
+    height: '2.5rem',
+    margin: '0 1rem'
+  }
 
   const selectClass = (event) => {
     setCharClass(event.target.innerText)
