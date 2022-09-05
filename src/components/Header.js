@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { login, logout } from '../services/firebase';
+// import { login, logout } from '../services/firebase';
 
 import Welcome from './Welcome';
 import SpellsByLevel from './SpellsByLevel';
 
 const Header = (props) => {
   const [ charClass, setCharClass ] = useState('')
-  const photoStyles = {
-    borderRadius: '50%',
-    height: '2.5rem',
-    margin: '0 1rem'
-  }
+  // const photoStyles = {
+  //   borderRadius: '50%',
+  //   height: '2.5rem',
+  //   margin: '0 1rem'
+  // }
 
   const selectClass = (event) => {
     setCharClass(event.target.innerText)
@@ -41,6 +41,12 @@ const Header = (props) => {
           </li>
         </ul>
       </div>
+      <SpellsByLevel 
+        charClass={ charClass } 
+        handleLevelClick={ props.handleLevelClick } 
+        setNull={ props.setNull } 
+      />
+      <Welcome user={ props.user }/>
       {/* <div>
         <ul>
           <Link to='/'>
@@ -57,12 +63,6 @@ const Header = (props) => {
           <li onClick={props.handleLevelClick}>9</li>
         </ul>
       </div> */}
-      <SpellsByLevel 
-        charClass={ charClass } 
-        handleLevelClick={ props.handleLevelClick } 
-        setNull={ props.setNull } 
-      />
-      <Welcome user={ props.user }/>
       {/* <div>
         <ul>
           {
