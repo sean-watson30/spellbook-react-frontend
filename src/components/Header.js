@@ -5,16 +5,16 @@ import Welcome from './Welcome';
 import SpellsByLevel from './SpellsByLevel';
 
 const Header = (props) => {
-  const [ charClass, setCharClass ] = useState('')
+  // const [ charClass, setCharClass ] = useState('')
 
   const selectClass = (event) => {
-    setCharClass(event.target.innerText)
-    charClass === 'Wizard' ? props.getWizSpells() : props.getPriSpells()
-    // if (charClass === 'Wizard') {
-    //   props.getWizSpells()
-    // } else if (charClass === 'Priest') {
-    //   props.getPriSpells()
-    // }
+    props.setCharClass(event.target.innerText)
+    // props.charClass === 'Wizard' ? props.getWizSpells() : props.getPriSpells()
+    if (props.charClass === 'Wizard') {
+      props.getWizSpells()
+    } else if (props.charClass === 'Priest') {
+      props.getPriSpells()
+    }
   }
 
   return (
@@ -24,7 +24,7 @@ const Header = (props) => {
           <li>
             <Link to='/'>
               {/* <span onClick={props.getWizSpells}>Wizard</span> */}
-              {/* <span onClick={ () => setCharClass('Wizard') }>Wizard</span> */}
+              {/* <span onClick={ () => props.setCharClass('Wizard') }>Wizard</span> */}
               <span onClick={ selectClass }>Wizard</span>
             </Link>
           </li>
@@ -39,7 +39,7 @@ const Header = (props) => {
         </ul>
       </div>
       <SpellsByLevel 
-        charClass={ charClass } 
+        charClass={ props.charClass } 
         handleLevelClick={ props.handleLevelClick } 
         setNull={ props.setNull } 
       />

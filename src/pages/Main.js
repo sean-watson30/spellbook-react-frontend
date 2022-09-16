@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Route } from "react-router-dom";
 // _____Components________
 import Header from "../components/Header";
@@ -10,7 +10,7 @@ import Footer from "../components/Footer";
 import Show from "./Show";
 
 const Main = (props) => {
-  
+  const [ charClass, setCharClass ] = useState('')
   
   return (
     <div className="App">
@@ -21,6 +21,8 @@ const Main = (props) => {
         handleLevelClick={ props.handleLevelClick }
         spellLevel={ props.spellLevel }
         setNull={ props.setNull }
+        charClass={ charClass }
+        setCharClass={ setCharClass }
       />
       <div className='content'>
         <div className='mainBody'>
@@ -31,6 +33,7 @@ const Main = (props) => {
               getPriSpells={ props.getPriSpells }
               getWizSpells={ props.getWizSpells }
               spellLevel={ props.spellLevel }
+              charClass={ charClass }
               />
             { props.spellLevel === '' 
               ? <Create 
