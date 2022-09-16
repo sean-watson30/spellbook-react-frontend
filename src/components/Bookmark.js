@@ -2,8 +2,12 @@ import { Link } from 'react-router-dom'
 
 // ________Page Components_________//
 const Bookmark = ({ spells, spellLevel }) => {
-
+  
   const loaded = () => {
+    spells.sort((a, b) => {
+      return (a.name < b.name ? -1 : (a.name > b.name ? 1 : 0))
+    })
+    
     // spells.sort((a, b) => a.name.localeCompare(b.name))
     return spells.map(spell => {
       if (spell.level === `${spellLevel}`) {

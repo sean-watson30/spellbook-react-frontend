@@ -3,13 +3,13 @@ import { Route } from 'react-router-dom'
 // _____Services________
 import { auth } from './services/firebase';
 // _____Components________
-import Header from './components/Header'
-import Bookmark from './components/Bookmark';
-import Footer from './components/Footer'
-import Create from './components/Create'
-import Memorize from './components/Memorize';
+// import Header from './components/Header'
+// import Bookmark from './components/Bookmark';
+// import Footer from './components/Footer'
+// import Create from './components/Create'
+// import Memorize from './components/Memorize';
 // _____Pages________
-import Show from  './pages/Show'
+// import Show from  './pages/Show'
 import Main from './pages/Main';
 
 
