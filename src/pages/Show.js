@@ -2,7 +2,7 @@ import { useState } from  'react';
 // import { Link } from 'react-router-dom';
 
 const Show = ( props ) => {
-  // console.log(props)
+  console.log(props.memorizedSpells)
   // console.log(props.match.params.id)
   const id = props.match.params.id;
   // console.log(id)
@@ -29,14 +29,19 @@ const Show = ( props ) => {
     props.history.push('/');
   }
 
+  function handleMemorize() {
+    props.setMemorizedSpells( prevMemorize => {
+      return [ ...prevMemorize, `${spell.name}`]
+    })
+  }
+
   return (
     <main className='spellShow'>
       <h1>{spell.name}</h1>
       <h3>( {spell.school} )</h3>
-      {/* <button onClick={handleClick}>Memorize</button> */}
-      {/* <button onClick={(e) => {
-            props.onAdd(e, spell._id);
-          }}>Memorize</button> */}
+   
+      {/* <button onClick={ handleMemorize }>Memorize</button> */}
+
       <table className='showTable'>
         <tbody>
           <tr>

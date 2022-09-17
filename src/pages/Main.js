@@ -11,6 +11,8 @@ import Show from "./Show";
 
 const Main = (props) => {
   const [ charClass, setCharClass ] = useState('')
+  const [ memorizedSpells, setMemorizedSpells ] = useState([])
+
   
   return (
     <div className="App">
@@ -48,12 +50,14 @@ const Main = (props) => {
                     { ...rp }
                     updateSpell={ props.updateSpell }
                     deleteSpell={ props.deleteSpell }
+                    memorizedSpells={ memorizedSpells }
+                    setMemorizedSpells={ setMemorizedSpells }
                   />
                   )}>
                 </Route> 
             }
             <div className='memorize'>
-              <Memorize />
+              <Memorize memorizedSpells={ memorizedSpells } />
             </div>
           </div>
         </div>
