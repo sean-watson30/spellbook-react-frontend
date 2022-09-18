@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
+import PreparedSpell from './PreparedSpell'
 
 const Memorize = ({ memorizedSpells, onAdd }) => {
   // console.log(memorizedSpells)
-  const [ count, setCount ] = useState('0')
+  // const [ count, setCount ] = useState('0')
 
   // function add() {
   //   setCount(prevCount => prevCount + 1)
@@ -22,10 +23,7 @@ const Memorize = ({ memorizedSpells, onAdd }) => {
         {
           memorizedSpells.map(memorized => {
             return (
-              <div>
-                <li>{ memorized }</li>
-                <button onClick={ remove }> - </button>
-              </div>
+              <PreparedSpell memorized={ memorized }/>
             ) 
           })
         }

@@ -31,7 +31,7 @@ const Show = ( props ) => {
 
   function handleMemorize() {
     props.setMemorizedSpells( prevMemorize => {
-      return [ ...prevMemorize, `${spell.name}`]
+      return [ ...prevMemorize, `${spell.name}` ]
     })
   }
 
@@ -40,7 +40,7 @@ const Show = ( props ) => {
       <h1>{spell.name}</h1>
       <h3>( {spell.school} )</h3>
    
-      {/* <button onClick={ handleMemorize }>Memorize</button> */}
+      <button onClick={ handleMemorize }>Memorize</button>
 
       <table className='showTable'>
         <tbody>
