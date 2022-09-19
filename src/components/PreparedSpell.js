@@ -14,7 +14,9 @@ export default function PreparedSpell({ memorized }) {
     <li>
       { memorized } x { count }
       <button onClick={ add }>+</button>
-      <button onClick={ subtract}>-</button>
+      <button onClick={ subtract }>-</button>
     </li>
   )
 }
+
+// add a link from the Memorize component back to the spell's Show page to reference....
