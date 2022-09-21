@@ -13,7 +13,7 @@ const Memorize = ({ memorizedSpells, setMemorizedSpells }) => {
 
   return (
     <div id='memorize' className='memorized'>
-      {/* <h3>Memorized Spells</h3>
+      <h3>Memorized Spells</h3>
       <ul>
         {
           memorizedSpells.map(memorized => {
@@ -21,13 +21,14 @@ const Memorize = ({ memorizedSpells, setMemorizedSpells }) => {
               // <PreparedSpell memorized={ memorized } remove={ remove }/>
               <PreparedSpell 
                 memorized={ memorized }
+                remove={ remove }
                 memorizedSpells={ memorizedSpells }
                 setMemorizedSpells={ setMemorizedSpells }
               />
             ) 
           })
         }
-      </ul> */}
+      </ul>
     </div>
   )
 }
