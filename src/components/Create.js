@@ -153,8 +153,8 @@ const Create = (props) => {
             onChange={ handleChange }
             name="description" 
             cols="30" 
-            rows="10">
-          </textarea>
+            rows="10"
+          />
           <br />
           <input type="submit" value='Transcribe Spell' />
         </form>

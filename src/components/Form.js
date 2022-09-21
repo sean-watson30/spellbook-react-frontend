@@ -6,9 +6,11 @@ export default function Form({ props, form, setForm, createWizSpell, createPriSp
   console.log(charClass)
   
   const handleChange = (event) => {
+    const { name, value } = event.target
     setForm({ 
       ...form,
-      [event.target.name]: event.target.value
+      // [event.target.name]: event.target.value
+      [ name ]: value
     });
   };
 
@@ -102,8 +104,8 @@ export default function Form({ props, form, setForm, createWizSpell, createPriSp
         onChange={ handleChange }
         name="description" 
         cols="30" 
-        rows="10">
-      </textarea>
+        rows="10"
+      />
       <br />
       <input type="submit" value='Transcribe Spell' />
     </form>
