@@ -1,14 +1,22 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-export default function PreparedSpell({ memorized }) {
+// export default function PreparedSpell({ memorized, remove }) {
+export default function PreparedSpell({ memorized, memorizedSpells, setMemorizedSpells }) {
   const [ count, setCount ] = useState(0)
-  console.log(memorized)
+  // console.log(memorized)
   function add() {
     setCount(prevCount => prevCount += 1)
   }
   function subtract() {
     setCount(prevCount => prevCount -= 1)
+  }
+
+  function remove() {
+    let newMemorized = memorizedSpells.filter(memorized => {
+      return !memorized // currently clears out all state...need to isolate
+    })
+    setMemorizedSpells(newMemorized)
   }
 
   return (
@@ -19,6 +27,7 @@ export default function PreparedSpell({ memorized }) {
       { memorized } x { count }
       <button onClick={ add }>+</button>
       <button onClick={ subtract }>-</button>
+      <button onClick={ remove }>Remove</button>
     </li>
   )
 }

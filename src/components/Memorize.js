@@ -1,11 +1,15 @@
 import React, { useState } from 'react'
 import PreparedSpell from './PreparedSpell'
 
-const Memorize = ({ memorizedSpells, onAdd }) => {
+const Memorize = ({ memorizedSpells, setMemorizedSpells }) => {
 
   function remove() {
-    // need to find a way to have a remove() function that removes the individual spell form the memorized state
+    let newMemorized = memorizedSpells.filter(memorized => {
+      return !memorized
+    })
+    setMemorizedSpells(newMemorized)
   }
+  // need to find a way to have a remove() function that removes the individual spell from the memorized state
 
   return (
     <div id='memorize' className='memorized'>
@@ -14,7 +18,12 @@ const Memorize = ({ memorizedSpells, onAdd }) => {
         {
           memorizedSpells.map(memorized => {
             return (
-              <PreparedSpell memorized={ memorized } />
+              // <PreparedSpell memorized={ memorized } remove={ remove }/>
+              <PreparedSpell 
+                memorized={ memorized }
+                memorizedSpells={ memorizedSpells }
+                setMemorizedSpells={ setMemorizedSpells }
+              />
             ) 
           })
         }

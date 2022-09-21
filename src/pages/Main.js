@@ -57,7 +57,10 @@ const Main = (props) => {
                 </Route> 
             }
             <div className='memorize'>
-              <Memorize memorizedSpells={ memorizedSpells } />
+              <Memorize 
+                memorizedSpells={ memorizedSpells } 
+                setMemorizedSpells={ setMemorizedSpells }
+              />
             </div>
           </div>
         </div>
