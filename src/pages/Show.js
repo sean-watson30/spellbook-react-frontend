@@ -1,13 +1,9 @@
 import { useState } from  'react';
-// import { Link } from 'react-router-dom';
 
 const Show = ( props ) => {
-  console.log(props.memorizedSpells)
-  // console.log(props.match.params.id)
+  // console.log(props.memorizedSpells)
   const id = props.match.params.id;
-  // console.log(id)
   const spell = props.spells.find(s => s._id === id);
-  // console.log(spell._id)
   
   const [ editForm, setEditForm ] = useState(spell);
   const handleChange = (event) => {
@@ -31,7 +27,11 @@ const Show = ( props ) => {
 
   function handleMemorize() {
     props.setMemorizedSpells( prevMemorize => {
-      return [ ...prevMemorize, `${spell.name}` ]
+      // return [ ...prevMemorize, `${spell.name}` ]
+      return [ ...prevMemorize, spell.name ]
+      // return [ ...prevMemorize, [ spell.name, spell._id, spell.level ] ]
+      // return [ ...prevMemorize, { name: spell.name, id: spell._id, level: spell.level} ]
+      // return [ ...prevMemorize, [ { name: spell.name, id: spell._id, level: spell.level} ] ]
     })
   }
 
@@ -60,7 +60,6 @@ const Show = ( props ) => {
           </tr>
         </tbody>
       </table>
-          {/* {console.log(props.user.email)} */}
 
       <p className='spellDescription'>{spell.description}</p>
       { props.user && 

@@ -1,8 +1,7 @@
-import React from "react";
-import { useState } from 'react';
+import React, { useState } from "react";
+// import Form from "./Form";
 
 const Create = (props) => {
-  // console.log(props.user.email)
   const [ charClass, setCharClass ] = useState()
   const [ newForm, setNewForm ] = useState({
     level: '',
@@ -39,6 +38,21 @@ const Create = (props) => {
     props.history.push('/');
   }
 
+  // const inputs = [ newForm.level, newForm.school, newForm.range, newForm.duration, newForm.aoe, newForm.components, newForm.casting, newForm.saving ]
+  // const inputMap = inputs.map(input => {
+  //   let val = Function(`newForm.${input}`)
+  //   console.log(val)
+  //   return (
+  //     <input 
+  //       value={ val } 
+  //       onChange={ handleChange }
+  //       name={ input }
+  //       placeholder={ input }
+  //       type="text" 
+  //     />  
+  //   )
+  // })
+
   return (
     <section className="create">
       { props.user
@@ -46,87 +60,97 @@ const Create = (props) => {
         <>
           <h2 className="glowConst">Transcribe a New Spell</h2>
           <ul>
-            <li className="create-wiz" onClick={handleClass}>Wizard</li>
+            <li className="create-wiz" onClick={ handleClass }>Wizard</li>
             <li>|</li>
-            <li className="create-pri" onClick={handleClass}>Priest</li>
+            <li className="create-pri" onClick={ handleClass }>Priest</li>
           </ul>
-          <form className='createForm' onSubmit={handleSubmit}>
 
+          {/* <Form 
+            form={ newForm }
+            setForm={ setNewForm }
+            createWizSpell={ props.createWizSpell }
+            createPriSpell={ props.createPriSpell }
+            charClass={ charClass }
+          /> */}
+
+          <form className='createForm' onSubmit={ handleSubmit }>
+
+            {/* { inputMap } */}
           <input 
-            value={newForm.level} 
-            onChange={handleChange}
+            value={ newForm.level } 
+            onChange={ handleChange }
             name='level'
             placeholder="level"
             type="text" 
           />
           <br />
           <input 
-            value={newForm.name} 
-            onChange={handleChange}
+            value={ newForm.name } 
+            onChange={ handleChange }
             name='name'
             placeholder='name'
             type="text" 
           />
           <br />
           <input 
-            value={newForm.school} 
-            onChange={handleChange}
+            value={ newForm.school } 
+            onChange={ handleChange }
             name='school'
             placeholder='school'
             type="text" 
           />
           <br />
           <input 
-            value={newForm.range} 
-            onChange={handleChange}
+            value={ newForm.range } 
+            onChange={ handleChange }
             name='range'
             placeholder="range"
             type="text" 
           />
           <br />
           <input 
-            value={newForm.duration} 
-            onChange={handleChange}
+            value={ newForm.duration } 
+            onChange={ handleChange }
             name='duration'
             placeholder="duration"
             type="text" 
           />
           <br />
           <input 
-            value={newForm.aoe} 
-            onChange={handleChange}
+            value={ newForm.aoe } 
+            onChange={ handleChange }
             name='aoe'
             placeholder="area of effect"
             type="text" 
           />
           <br />
           <input 
-            value={newForm.components} 
-            onChange={handleChange}
+            value={ newForm.components } 
+            onChange={ handleChange }
             name='components'
             placeholder="components"
             type="text" 
           />
           <br />
           <input 
-            value={newForm.casting} 
-            onChange={handleChange}
+            value={ newForm.casting } 
+            onChange={ handleChange }
             name='casting'
             placeholder="casting time"
             type="text" 
           />
           <br />
           <input 
-            value={newForm.saving} 
-            onChange={handleChange}
+            value={ newForm.saving } 
+            onChange={ handleChange }
             name='saving'
             placeholder="saving throw"
             type="text" 
           />
           <br />
           <textarea 
-            value={newForm.description}
-            onChange={handleChange}
+            value={ newForm.description }
+            onChange={ handleChange }
             name="description" 
             cols="30" 
             rows="10">

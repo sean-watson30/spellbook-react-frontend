@@ -9,12 +9,12 @@ const Memorize = ({ memorizedSpells, onAdd }) => {
 
   return (
     <div id='memorize' className='memorized'>
-      {/* <h3>Memorize</h3>
+      {/* <h3>Memorized Spells</h3>
       <ul>
         {
           memorizedSpells.map(memorized => {
             return (
-              <PreparedSpell memorized={ memorized }/>
+              <PreparedSpell memorized={ memorized } />
             ) 
           })
         }

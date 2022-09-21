@@ -1,8 +1,9 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function PreparedSpell({ memorized }) {
   const [ count, setCount ] = useState(0)
-
+  console.log(memorized)
   function add() {
     setCount(prevCount => prevCount += 1)
   }
@@ -12,6 +13,9 @@ export default function PreparedSpell({ memorized }) {
 
   return (
     <li>
+      {/* <Link to={`/:${memorized[1]}`}>
+        { memorized[0] } x { count }
+      </Link> */}
       { memorized } x { count }
       <button onClick={ add }>+</button>
       <button onClick={ subtract }>-</button>
