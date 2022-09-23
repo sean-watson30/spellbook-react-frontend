@@ -31,6 +31,12 @@ const Show = ( props ) => {
       return [ ...prevMemorize, spell ]
     })
   }
+  // above add something like:
+  // if prevMemorize.find(spell.name) { // look for the spell to see if it exists
+  //   return [ ...prevMemorize ]
+  // } else {
+  //   return [ ...prevMemorize, spell ]
+  // }
 
   return (
     <main className='spellShow'>
