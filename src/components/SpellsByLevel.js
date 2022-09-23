@@ -4,6 +4,16 @@ import { Link } from 'react-router-dom';
 const SpellsByLevel = ({ setNull, handleLevelClick, charClass }) => {
   const spellsByLevel = [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
 
+  const wizard = spellsByLevel.map((level) => {
+    return (<li onClick={ handleLevelClick }>{ level }</li>)
+  })
+
+  const priest = spellsByLevel.map((level) => {
+    if ( level < 8 ) {
+      return (<li onClick={ handleLevelClick }>{ level }</li>)
+    }
+  })
+
   return (
     <div>
       <ul>
@@ -16,22 +26,8 @@ const SpellsByLevel = ({ setNull, handleLevelClick, charClass }) => {
               </Link>
               {
                 charClass === 'Wizard'
-                ? <>
-                    {
-                      spellsByLevel.map((level) => {
-                        return (<li onClick={ handleLevelClick }>{ level }</li>)
-                      })
-                    }
-                  </>
-                : <>
-                    {
-                      spellsByLevel.map((level) => {
-                        if ( level < 8 ) {
-                          return (<li onClick={ handleLevelClick }>{ level }</li>)
-                        }
-                      })
-                    }
-                  </>
+                ? <> { wizard } </>
+                : <> { priest } </>
               }
           </>
         }

@@ -12,8 +12,6 @@ import Show from "./Show";
 const Main = (props) => {
   const [ charClass, setCharClass ] = useState('')
   const [ memorizedSpells, setMemorizedSpells ] = useState([])
-  // const [ memorizedSpells, setMemorizedSpells ] = useState({})
-
   
   return (
     <div className="App">

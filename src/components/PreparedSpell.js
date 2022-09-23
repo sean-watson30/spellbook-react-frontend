@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function PreparedSpell({ memorized, remove }) {
-// export default function PreparedSpell({ memorized, memorizedSpells, setMemorizedSpells }) {
   const [ count, setCount ] = useState(0)
-  // console.log(memorized)
+
   function add() {
     setCount(prevCount => prevCount += 1)
   }
@@ -12,24 +11,16 @@ export default function PreparedSpell({ memorized, remove }) {
     setCount(prevCount => prevCount -= 1)
   }
 
-  // function remove() {
-  //   let newMemorized = memorizedSpells.filter(memorized => {
-  //     return !memorized // currently clears out all state...need to isolate
-  //   })
-  //   setMemorizedSpells(newMemorized)
-  // }
+  const id = memorized._id
 
   return (
     <li>
-      {/* <Link to={`/:${memorized[1]}`}>
-        { memorized[0] } x { count }
-      </Link> */}
-      { memorized } x { count }
+      <Link to={`${id}`}>
+        { memorized.name } x { count }
+      </Link>
       { count < 10 && <button onClick={ add }>+</button>}
       { count > 0 && <button onClick={ subtract }>-</button>}
       <button onClick={ remove }>Remove</button>
     </li>
   )
 }
-
-// add a link from the Memorize component back to the spell's Show page to reference....

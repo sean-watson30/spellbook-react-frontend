@@ -27,11 +27,8 @@ const Show = ( props ) => {
 
   function handleMemorize() {
     props.setMemorizedSpells( prevMemorize => {
-      // return [ ...prevMemorize, `${spell.name}` ]
-      return [ ...prevMemorize, spell.name ]
-      // return [ ...prevMemorize, [ spell.name, spell._id, spell.level ] ]
-      // return [ ...prevMemorize, { name: spell.name, id: spell._id, level: spell.level} ]
-      // return [ ...prevMemorize, [ { name: spell.name, id: spell._id, level: spell.level} ] ]
+      // console.log(prevMemorize)
+      return [ ...prevMemorize, spell ]
     })
   }
 

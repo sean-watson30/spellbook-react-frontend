@@ -13,7 +13,7 @@ const Welcome = ({ user }) => {
     <div>
       <ul>
         {
-          user 
+          user
           ? <>
               <li className='login-greeting'>Welcome, { user.displayName } 
                 <img style={ photoStyles } src={ user.photoURL } alt={ user.displayName } />

@@ -6,31 +6,45 @@ const Memorize = ({ memorizedSpells, setMemorizedSpells }) => {
   function remove() {
     let newMemorized = memorizedSpells.filter(memorized => {
       return !memorized
+      // return [ ...prevMemorized, !memorized ] maybe by id instead?
     })
     setMemorizedSpells(newMemorized)
   }
-  // need to find a way to have a remove() function that removes the individual spell from the memorized state
+
+
+  // add a sorting feature here by level?
+  const prepared = memorizedSpells.map(memorized => {
+    return  <PreparedSpell 
+              memorized={ memorized }
+              remove={ remove }
+              memorizedSpells={ memorizedSpells }
+              setMemorizedSpells={ setMemorizedSpells }
+            />
+  })
 
   return (
     <div id='memorize' className='memorized'>
       <h3>Memorized Spells</h3>
       <ul>
-        {
-          memorizedSpells.map(memorized => {
-            return (
-              // <PreparedSpell memorized={ memorized } remove={ remove }/>
-              <PreparedSpell 
-                memorized={ memorized }
-                remove={ remove }
-                memorizedSpells={ memorizedSpells }
-                setMemorizedSpells={ setMemorizedSpells }
-              />
-            ) 
-          })
-        }
+        { prepared }
       </ul>
     </div>
   )
 }
 
 export default Memorize
+
+
+{/* {
+  memorizedSpells.map(memorized => {
+    return (
+      // <PreparedSpell memorized={ memorized } remove={ remove }/>
+      <PreparedSpell 
+        memorized={ memorized }
+        remove={ remove }
+        memorizedSpells={ memorizedSpells }
+        setMemorizedSpells={ setMemorizedSpells }
+      />
+    ) 
+  })
+} */}
