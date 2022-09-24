@@ -33,18 +33,3 @@ const Memorize = ({ memorizedSpells, setMemorizedSpells }) => {
 }
 
 export default Memorize
-
-
-{/* {
-  memorizedSpells.map(memorized => {
-    return (
-      // <PreparedSpell memorized={ memorized } remove={ remove }/>
-      <PreparedSpell 
-        memorized={ memorized }
-        remove={ remove }
-        memorizedSpells={ memorizedSpells }
-        setMemorizedSpells={ setMemorizedSpells }
-      />
-    ) 
-  })
-} */}
