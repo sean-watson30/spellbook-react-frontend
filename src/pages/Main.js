@@ -12,6 +12,8 @@ import Show from "./Show";
 const Main = (props) => {
   const [ charClass, setCharClass ] = useState('')
   const [ memorizedSpells, setMemorizedSpells ] = useState([])
+
+  // console.log(charClass)
   
   return (
     <div className="App">
@@ -40,7 +42,10 @@ const Main = (props) => {
               ? <Create 
                   createWizSpell={ props.createWizSpell }
                   createPriSpell={ props.createPriSpell }
+                  getPriSpells={ props.getPriSpells }
+                  getWizSpells={ props.getWizSpells }
                   user={ props.user }
+                  charClass={charClass}
                 /> 
               : <Route path='/:id' render={(rp) => (
                   <Show 
