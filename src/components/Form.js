@@ -1,29 +1,8 @@
 import React from "react";
 
-export default function Form({ props, form, setForm, createWizSpell, createPriSpell, charClass }) {
-  // console.log(form)
-  // console.log(setForm)
-  console.log(charClass)
-  
-  const handleChange = (event) => {
-    const { name, value } = event.target
-    setForm({ 
-      ...form,
-      // [event.target.name]: event.target.value
-      [ name ]: value
-    });
-  };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (charClass === 'Wizard') {
-      createWizSpell(form);
-    } else {
-      createPriSpell(form);
-    }
-    // props.history.push('/');
-  }
 
+export default function Form({ handleChange, handleSubmit, form }) {
 
     // const inputs = [ 'level', 'school', 'range', 'duration', 'aoe', 'components', 'casting', 'saving' ]
   // const inputMap = inputs.map(input => {

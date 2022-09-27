@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 // import Form from "./Form";
 
-// const Create = (props) => {
 const Create = ({ user, charClass, getWizSpells, getPriSpells }) => {
-  // const [ charClass, setCharClass ] = useState()
   const [ newForm, setNewForm ] = useState({
     level: '',
     name: '',
@@ -43,7 +41,7 @@ const Create = ({ user, charClass, getWizSpells, getPriSpells }) => {
     } else if (charClass === 'Priest') {
       URL = 'https://spellbook2.herokuapp.com/priSpells/'
     } 
-    console.log(URL)
+    // console.log(URL)
     await fetch(URL, { 
       method: 'POST',
       headers: { 
@@ -76,6 +74,8 @@ const Create = ({ user, charClass, getWizSpells, getPriSpells }) => {
             createWizSpell={ props.createWizSpell }
             createPriSpell={ props.createPriSpell }
             charClass={ charClass }
+            handleChange={ handleChange }
+            handleSubmit={ handleSubmit }
           /> */}
 
           <form className='createForm' onSubmit={ handleSubmit }>
