@@ -20,15 +20,9 @@ const Create = ({ user, charClass, getWizSpells, getPriSpells }) => {
   const handleChange = (event) => {
     const { name, value } = event.target
     setNewForm({
-      ...newForm,
-      // [event.target.name]: event.target.value
-      [ name ]: value
+      ...newForm, [ name ]: value
     });
   };
-
-  // const handleClass = (event) => {
-  //   setCharClass(event.target.innerText)
-  // }
 
   // console.log(charClass)
   // if (charClass === 'Wizard') {
@@ -37,17 +31,6 @@ const Create = ({ user, charClass, getWizSpells, getPriSpells }) => {
   //   console.log('Priest') 
   // } else {
   //   console.log('empty')
-  // }
-
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   // props.createSpell(newForm);
-  //   if (charClass === 'Wizard') {
-  //     props.createWizSpell(newForm);
-  //   } else {
-  //     props.createPriSpell(newForm);
-  //   }
-  //   props.history.push('/');
   // }
 
   let URL = ''
@@ -82,16 +65,10 @@ const Create = ({ user, charClass, getWizSpells, getPriSpells }) => {
 
   return (
     <section className="create">
-      {/* { props.user */}
       { user
         ?
         <>
           <h2 className="glowConst">Transcribe a New { charClass } Spell</h2>
-          <ul>
-            {/* <li className="create-wiz" onClick={ handleClass }>Wizard</li>
-            <li>|</li>
-            <li className="create-pri" onClick={ handleClass }>Priest</li> */}
-          </ul>
 
           {/* <Form 
             form={ newForm }
@@ -102,9 +79,7 @@ const Create = ({ user, charClass, getWizSpells, getPriSpells }) => {
           /> */}
 
           <form className='createForm' onSubmit={ handleSubmit }>
-          {/* <form className='createForm'> */}
 
-            {/* { inputMap } */}
           <input 
             value={ newForm.level } 
             onChange={ handleChange }
