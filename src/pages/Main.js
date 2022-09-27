@@ -56,6 +56,9 @@ const Main = (props) => {
                     deleteSpell={ props.deleteSpell }
                     memorizedSpells={ memorizedSpells }
                     setMemorizedSpells={ setMemorizedSpells }
+                    charClass={ charClass }
+                    getPriSpells={ props.getPriSpells }
+                    getWizSpells={ props.getWizSpells }
                   />
                   )}>
                 </Route> 

@@ -6,17 +6,43 @@ const Show = ( props ) => {
   const spell = props.spells.find(s => s._id === id);
   
   const [ editForm, setEditForm ] = useState(spell);
+  
+  let URL = ''
+
+  const updateSpell = async (updatedSpell, id) => {
+    if (!props.user) return;
+    const token = await props.user.getIdToken();
+    if (props.charClass === 'Wizard') {
+      URL = 'https://spellbook2.herokuapp.com/wizSpells/'
+    } else if (props.charClass === 'Priest') {
+      URL = 'https://spellbook2.herokuapp.com/priSpells/'
+    } 
+    await fetch(URL + id, {
+      method: 'PUT',
+      headers: {
+        'Content-type': 'Application/json',
+        'Authorization': 'Bearer ' + token
+      },
+      body: JSON.stringify(updatedSpell)
+    });
+    props.getWizSpells();
+    props.getPriSpells();
+  }
+
   const handleChange = (event) => {
+    const { name, value } = event.target
     setEditForm({
       ...editForm,
-      [event.target.name]: event.target.value
+      [ name ]: value
+      // [event.target.name]: event.target.value
     })
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const { level, name, school, range, components, duration, casting, aoe, saving, description, _id } = editForm
-    props.updateSpell({ level, name, school, range, components, duration, casting, aoe, saving, description }, _id) 
+    // props.updateSpell({ level, name, school, range, components, duration, casting, aoe, saving, description }, _id) 
+    updateSpell({ level, name, school, range, components, duration, casting, aoe, saving, description }, _id) 
     props.history.push('/');
   };
 
@@ -27,7 +53,6 @@ const Show = ( props ) => {
 
   function handleMemorize() {
     props.setMemorizedSpells( prevMemorize => {
-      // console.log(prevMemorize)
       return [ ...prevMemorize, spell ]
     })
   }
@@ -38,105 +63,107 @@ const Show = ( props ) => {
   //   return [ ...prevMemorize, spell ]
   // }
 
+
+
   return (
     <main className='spellShow'>
-      <h1>{spell.name}</h1>
-      <h3>( {spell.school} )</h3>
+      <h1>{ spell.name }</h1>
+      <h3>({ spell.school })</h3>
    
       <button onClick={ handleMemorize }>Memorize</button>
 
       <table className='showTable'>
         <tbody>
           <tr>
-            <td><b>Range: </b>{spell.range}</td>
-            <td><b>Components:  </b>{spell.components}</td>
+            <td><b>Range: </b>{ spell.range }</td>
+            <td><b>Components:  </b>{ spell.components }</td>
           </tr>
 
           <tr>
-            <td><b>Duration: </b>{spell.duration}</td>
-            <td><b>Casting Time: </b>{spell.casting}</td>
+            <td><b>Duration: </b>{ spell.duration }</td>
+            <td><b>Casting Time: </b>{ spell.casting }</td>
           </tr>
 
           <tr>
-            <td><b>Area of Effect: </b>{spell.aoe}</td>
-            <td><b>Saving Throw: </b>{spell.saving}</td>
+            <td><b>Area of Effect: </b>{ spell.aoe }</td>
+            <td><b>Saving Throw: </b>{ spell.saving }</td>
           </tr>
         </tbody>
       </table>
 
-      <p className='spellDescription'>{spell.description}</p>
+      <p className='spellDescription'>{ spell.description }</p>
       { props.user && 
         props.user.email === 'sean_watson30@me.com' 
       ?
       <div>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={ handleSubmit }>
 
           <input 
-            value={editForm.level} 
-            onChange={handleChange}
+            value={ editForm.level } 
+            onChange={ handleChange }
             name='level'
             type="text" 
           />
           <br />
           <input 
-            value={editForm.name} 
-            onChange={handleChange}
+            value={ editForm.name } 
+            onChange={ handleChange }
             name='name'
             type="text" 
           />
           <br />
           <input 
-            value={editForm.school} 
-            onChange={handleChange}
+            value={ editForm.school } 
+            onChange={ handleChange }
             name='school'
             type="text" 
           />
           <br />
           <input 
-            value={editForm.range} 
-            onChange={handleChange}
+            value={ editForm.range } 
+            onChange={ handleChange }
             name='range'
             type="text" 
           />
           <br />
           <input 
-            value={editForm.duration} 
-            onChange={handleChange}
+            value={ editForm.duration } 
+            onChange={ handleChange }
             name='duration'
             type="text" 
           />
           <br />
           <input 
-            value={editForm.aoe} 
-            onChange={handleChange}
+            value={ editForm.aoe } 
+            onChange={ handleChange }
             name='aoe'
             type="text" 
           />
           <br />
           <input 
-            value={editForm.components} 
-            onChange={handleChange}
+            value={ editForm.components } 
+            onChange={ handleChange }
             name='components'
             type="text" 
           />
           <br />
           <input 
-            value={editForm.casting} 
-            onChange={handleChange}
+            value={ editForm.casting } 
+            onChange={ handleChange }
             name='casting'
             type="text" 
           />
           <br />
           <input 
-            value={editForm.saving} 
-            onChange={handleChange}
+            value={ editForm.saving } 
+            onChange={ handleChange }
             name='saving'
             type="text" 
           />
           <br />
           <textarea 
-            value={editForm.description}
-            onChange={handleChange}
+            value={ editForm.description }
+            onChange={ handleChange }
             name="description" 
             cols="30" 
             rows="10"

@@ -24,6 +24,25 @@ export default function Form({ props, form, setForm, createWizSpell, createPriSp
     // props.history.push('/');
   }
 
+
+    // const inputs = [ 'level', 'school', 'range', 'duration', 'aoe', 'components', 'casting', 'saving' ]
+  // const inputMap = inputs.map(input => {
+  //   // let val = Function(`newForm.${input}`)
+  //   // console.log(input)
+  //   let val = `newForm.${input}`
+  //   // let val = 
+  //   // console.log(val)
+  //   return (
+  //     <input 
+  //       value={ input } 
+  //       onChange={ handleChange }
+  //       name={ val }
+  //       placeholder={ input }
+  //       type="text" 
+  //     />  
+  //   )
+  // })
+
   return (
     <form className='createForm' onSubmit={ handleSubmit }>
 

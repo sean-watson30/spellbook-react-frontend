@@ -18,9 +18,11 @@ const Create = ({ user, charClass, getWizSpells, getPriSpells }) => {
   });
 
   const handleChange = (event) => {
+    const { name, value } = event.target
     setNewForm({
       ...newForm,
-      [event.target.name]: event.target.value
+      // [event.target.name]: event.target.value
+      [ name ]: value
     });
   };
 
@@ -48,25 +50,11 @@ const Create = ({ user, charClass, getWizSpells, getPriSpells }) => {
   //   props.history.push('/');
   // }
 
-  // const inputs = [ newForm.level, newForm.school, newForm.range, newForm.duration, newForm.aoe, newForm.components, newForm.casting, newForm.saving ]
-  // const inputMap = inputs.map(input => {
-  //   let val = Function(`newForm.${input}`)
-  //   console.log(val)
-  //   return (
-  //     <input 
-  //       value={ val } 
-  //       onChange={ handleChange }
-  //       name={ input }
-  //       placeholder={ input }
-  //       type="text" 
-  //     />  
-  //   )
-  // })
   let URL = ''
 
   const createSpell = async (spell) => { 
     if (!user) return;
-     const token = await user.getIdToken();
+    const token = await user.getIdToken();
     if (charClass === 'Wizard') {
       URL = 'https://spellbook2.herokuapp.com/wizSpells/'
     } else if (charClass === 'Priest') {
