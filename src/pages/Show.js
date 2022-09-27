@@ -1,9 +1,7 @@
 import { useState } from  'react';
-// import EditSpell from '../components/EditSpell';
 import Form from '../components/Form';
 
 const Show = ( props ) => {
-  // console.log(props.memorizedSpells)
   const id = props.match.params.id;
   const spell = props.spells.find(s => s._id === id);
   
@@ -95,8 +93,7 @@ const Show = ( props ) => {
       <p className='spellDescription'>{ spell.description }</p>
       { props.user && 
         props.user.email === 'sean_watson30@me.com' 
-      ?
-        <>
+      ? <>
           <Form 
             handleChange={ handleChange } 
             handleSubmit={ handleSubmit }
@@ -104,92 +101,10 @@ const Show = ( props ) => {
           />
           <button onClick={() => handleRemoveSpell(spell._id)}>Delete This Spell</button>
         </>
-      : 
-      <></>
+      : <></>
     }
     </main>
   )
 }
 
 export default Show;
-
-
-// <div>
-//   <form onSubmit={ handleSubmit }>
-
-//     <input 
-//       value={ editForm.level } 
-//       onChange={ handleChange }
-//       name='level'
-//       type="text" 
-//     />
-//     <br />
-//     <input 
-//       value={ editForm.name } 
-//       onChange={ handleChange }
-//       name='name'
-//       type="text" 
-//     />
-//     <br />
-//     <input 
-//       value={ editForm.school } 
-//       onChange={ handleChange }
-//       name='school'
-//       type="text" 
-//     />
-//     <br />
-//     <input 
-//       value={ editForm.range } 
-//       onChange={ handleChange }
-//       name='range'
-//       type="text" 
-//     />
-//     <br />
-//     <input 
-//       value={ editForm.duration } 
-//       onChange={ handleChange }
-//       name='duration'
-//       type="text" 
-//     />
-//     <br />
-//     <input 
-//       value={ editForm.aoe } 
-//       onChange={ handleChange }
-//       name='aoe'
-//       type="text" 
-//     />
-//     <br />
-//     <input 
-//       value={ editForm.components } 
-//       onChange={ handleChange }
-//       name='components'
-//       type="text" 
-//     />
-//     <br />
-//     <input 
-//       value={ editForm.casting } 
-//       onChange={ handleChange }
-//       name='casting'
-//       type="text" 
-//     />
-//     <br />
-//     <input 
-//       value={ editForm.saving } 
-//       onChange={ handleChange }
-//       name='saving'
-//       type="text" 
-//     />
-//     <br />
-//     <textarea 
-//       value={ editForm.description }
-//       onChange={ handleChange }
-//       name="description" 
-//       cols="30" 
-//       rows="10"
-//     />
-//     <br />
-//     <input type="submit" value='Update Spell' />
-
-//   </form>
-//   <button onClick={() => handleRemoveSpell(spell._id)}>Delete This Spell</button>
-// </div>

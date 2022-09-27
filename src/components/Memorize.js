@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import PreparedSpell from './PreparedSpell'
 
 const Memorize = ({ memorizedSpells, setMemorizedSpells }) => {
@@ -14,12 +14,14 @@ const Memorize = ({ memorizedSpells, setMemorizedSpells }) => {
 
   // add a sorting feature here by level?
   const prepared = memorizedSpells.map(memorized => {
-    return  <PreparedSpell 
-              memorized={ memorized }
-              remove={ remove }
-              memorizedSpells={ memorizedSpells }
-              setMemorizedSpells={ setMemorizedSpells }
-            />
+    return (
+      <PreparedSpell 
+        memorized={ memorized }
+        remove={ remove }
+        memorizedSpells={ memorizedSpells }
+        setMemorizedSpells={ setMemorizedSpells }
+      />
+    )
   })
 
   return (

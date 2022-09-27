@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 
 // ________Page Components_________//
-const Bookmark = ({ spells, spellLevel }) => {
+const Bookmark = ({ spells, spellLevel, charClass }) => {
   
   const loaded = () => {
     spells.sort((a, b) => {
@@ -30,7 +30,7 @@ const Bookmark = ({ spells, spellLevel }) => {
     <aside className="bookmark">
       <section>
         { spellLevel
-          ? <h3>Level {spellLevel} Spells</h3>
+          ? <h3>Level { spellLevel } { charClass} Spells</h3>
           : <h3>Select Class &amp; Spell Level</h3>
         }
         { spells 
