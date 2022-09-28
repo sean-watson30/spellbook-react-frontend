@@ -4,18 +4,14 @@ import React from "react";
 
 export default function Form({ handleChange, handleSubmit, form }) {
 
-    // const inputs = [ 'level', 'school', 'range', 'duration', 'aoe', 'components', 'casting', 'saving' ]
+  // const inputs = [ 'level', 'name', 'school', 'range', 'duration', 'aoe', 'components', 'casting', 'saving' ]
   // const inputMap = inputs.map(input => {
-  //   // let val = Function(`newForm.${input}`)
-  //   // console.log(input)
-  //   let val = `newForm.${input}`
-  //   // let val = 
-  //   // console.log(val)
+  //   let val = ( form.input )
   //   return (
   //     <input 
-  //       value={ input } 
+  //       value={ val } 
   //       onChange={ handleChange }
-  //       name={ val }
+  //       name={ input }
   //       placeholder={ input }
   //       type="text" 
   //     />  
@@ -24,7 +20,7 @@ export default function Form({ handleChange, handleSubmit, form }) {
 
   return (
     <form className='createForm' onSubmit={ handleSubmit }>
-
+      {/* { inputMap } */}
       <input 
         value={ form.level } 
         onChange={ handleChange }

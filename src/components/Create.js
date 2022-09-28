@@ -54,7 +54,7 @@ const Create = ({ user, charClass, getWizSpells, getPriSpells }) => {
 
   return (
     <section className="create">
-      { user
+      { user && charClass
         ?
         <>
           <h2 className="glowConst">Transcribe a New { charClass } Spell</h2>
