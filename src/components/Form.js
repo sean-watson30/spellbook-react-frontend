@@ -1,7 +1,5 @@
 import React from "react";
 
-
-
 export default function Form({ handleChange, handleSubmit, form }) {
 
   // const inputs = [ 'level', 'name', 'school', 'range', 'duration', 'aoe', 'components', 'casting', 'saving' ]
@@ -86,10 +84,10 @@ export default function Form({ handleChange, handleSubmit, form }) {
       />
       <br />
       <input 
-         value={ form.saving } 
-        onChange={ handleChange }
-        name='saving'
-        placeholder="saving throw"
+        value={ form.saving } 
+        onChange={ handleChange } 
+        name='saving' 
+        placeholder="saving throw" 
         type="text" 
       />
       <br />

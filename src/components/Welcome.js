@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { login, logout } from '../services/firebase';
 
-const Welcome = ({ user }) => {
+export default function Welcome({ user }) {
   const photoStyles = {
     borderRadius: '50%',
     height: '2.5rem',
@@ -28,5 +28,3 @@ const Welcome = ({ user }) => {
     </div>
   )
 }
-
-export default Welcome

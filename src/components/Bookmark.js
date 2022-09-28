@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom'
 
-// ________Page Components_________//
 const Bookmark = ({ spells, spellLevel, charClass }) => {
   
   const loaded = () => {
@@ -30,12 +29,12 @@ const Bookmark = ({ spells, spellLevel, charClass }) => {
     <aside className="bookmark">
       <section>
         { spellLevel
-          ? <h3>Level { spellLevel } { charClass} Spells</h3>
+          ? <h3>Level { spellLevel } { charClass } Spells</h3>
           : <h3>Select Class &amp; Spell Level</h3>
         }
         { spells 
-          ? <ul className='listDisplay' style={ {textAlign: 'left'} }>{loaded()}</ul>
-          : <ul>{loading()}</ul> 
+          ? <ul className='listDisplay' style={ {textAlign: 'left'} }>{ loaded() }</ul>
+          : <ul>{ loading() }</ul> 
         }
       </section>
     </aside>

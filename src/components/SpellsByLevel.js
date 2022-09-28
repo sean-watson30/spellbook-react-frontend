@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 
-const SpellsByLevel = ({ setNull, handleLevelClick, charClass }) => {
+export default function SpellsByLevel({ setNull, handleLevelClick, charClass }) {
   const spellsByLevel = [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
 
   const wizard = spellsByLevel.map((level) => {
@@ -35,5 +35,3 @@ const SpellsByLevel = ({ setNull, handleLevelClick, charClass }) => {
     </div>
   )
 }
-
-export default SpellsByLevel

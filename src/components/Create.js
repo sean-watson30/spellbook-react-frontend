@@ -32,7 +32,6 @@ const Create = ({ user, charClass, getWizSpells, getPriSpells }) => {
     } else if (charClass === 'Priest') {
       URL = 'https://spellbook2.herokuapp.com/priSpells/'
     } 
-    // console.log(URL)
     await fetch(URL, { 
       method: 'POST',
       headers: { 
