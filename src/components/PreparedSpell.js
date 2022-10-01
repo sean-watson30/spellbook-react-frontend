@@ -15,12 +15,12 @@ export default function PreparedSpell({ memorized, remove }) {
 
   return (
     <div>
-        <Link to={`${id}`}>
-          { memorized.name } x { count }
-        </Link>
-          { count < 10 && <button onClick={ add }>+</button>}
-          { count > 0 && <button onClick={ subtract }>-</button>}
-        <button onClick={ remove }>Remove</button>
+      <Link to={`${id}`}>
+        { memorized.name } x { count }
+      </Link>
+        { count < 10 && <button onClick={ add }>+</button>}
+        { count > 0 && <button onClick={ subtract }>-</button>}
+      <button onClick={ remove }>Remove</button>
     </div>
   )
 }
