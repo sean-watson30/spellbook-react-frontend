@@ -14,13 +14,13 @@ export default function PreparedSpell({ memorized, remove }) {
   const id = memorized._id
 
   return (
-    <li>
-      <Link to={`${id}`}>
-        { memorized.name } x { count }
-      </Link>
-      { count < 10 && <button onClick={ add }>+</button>}
-      { count > 0 && <button onClick={ subtract }>-</button>}
-      <button onClick={ remove }>Remove</button>
-    </li>
+    <div>
+        <Link to={`${id}`}>
+          { memorized.name } x { count }
+        </Link>
+          { count < 10 && <button onClick={ add }>+</button>}
+          { count > 0 && <button onClick={ subtract }>-</button>}
+        <button onClick={ remove }>Remove</button>
+    </div>
   )
 }
