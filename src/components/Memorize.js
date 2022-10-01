@@ -1,7 +1,7 @@
 import React from 'react'
 import PreparedSpell from './PreparedSpell'
 
-export default function Memorize({ memorizedSpells, setMemorizedSpells, level }) {
+export default function Memorize({ memorizedSpells, setMemorizedSpells }) {
   let levels = [1, 2, 3, 4, 5, 6, 7, 8, 9] 
 
   function remove() {

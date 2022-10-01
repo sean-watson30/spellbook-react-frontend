@@ -6,15 +6,12 @@ import Bookmark from "../components/Bookmark";
 import Create from "../components/Create";
 import Memorize from "../components/Memorize";
 import Footer from "../components/Footer";
-// import MemorizedByLevel from "../components/MemorizedByLevel";
 // _____Pages________
 import Show from "./Show";
 
 const Main = (props) => {
   const [ charClass, setCharClass ] = useState('')
   const [ memorizedSpells, setMemorizedSpells ] = useState([])
-
-  // console.log(charClass)
   
   return (
     <div className="App">
@@ -69,10 +66,6 @@ const Main = (props) => {
                 memorizedSpells={ memorizedSpells } 
                 setMemorizedSpells={ setMemorizedSpells }
               />
-              {/* <MemorizedByLevel 
-                memorizedSpells={ memorizedSpells } 
-                setMemorizedSpells={ setMemorizedSpells }
-              /> */}
             </div>
           </div>
         </div>
