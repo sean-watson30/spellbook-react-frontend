@@ -14,7 +14,6 @@ function App() {
   const [ spells, setSpells ] = useState([]);
   const [ spellLevel, setSpellLevel ] = useState('');
   const [ pathURL, setPathURL ] = useState('');
-  // const [ memorizedSpells, setMemorizedSpells ] = useState([])
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(user => setUser(user));
@@ -77,37 +76,6 @@ function App() {
   }, [user]);
   
   // ________CRUD Functions___________ //
-
-  // const createWizSpell = async (spell) => { 
-  //   if (!user) return;
-  //   // const token = await user.getIdToken();
-  //   // const wizURL = 'http://localhost:4000/wizSpells/'
-  //   const wizURL = 'https://spellbook2.herokuapp.com/wizSpells/'
-  //   await fetch(wizURL, { 
-  //     method: 'POST',
-  //     // headers: { 
-  //     //     'Content-type': 'Application/json',
-  //     //     'Authorization': 'Bearer ' + token
-  //     //   },
-  //       body: JSON.stringify(spell)
-  //     }); 
-  //   getWizSpells();
-  // };
-  // const createPriSpell = async (spell) => { 
-  //   if (!user) return;
-  //   const token = await user.getIdToken();
-  //   // const priURL = 'http://localhost:4000/priSpells/'
-  //   const priURL = 'https://spellbook2.herokuapp.com/priSpells/'
-  //   await fetch(priURL, { 
-  //     method: 'POST',
-  //     headers: { 
-  //         'Content-type': 'Application/json',
-  //         'Authorization': 'Bearer ' + token
-  //       },
-  //       body: JSON.stringify(spell)
-  //     }); 
-  //   getPriSpells();
-  // };
         
   const updateSpell = async (updatedSpell, id) => {
     // console.log(user.email)
@@ -148,7 +116,6 @@ function App() {
 
   const setNull = (event) => {
     setSpellLevel('')
-    // setSpellLevel(null)
   }
 
   return (
@@ -160,8 +127,6 @@ function App() {
       spellLevel={spellLevel}
       setNull={setNull}
       spells={spells} 
-      // createWizSpell={createWizSpell}
-      // createPriSpell={createPriSpell}
       updateSpell={updateSpell}
       deleteSpell={deleteSpell}
     />
