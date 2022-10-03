@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { login, logout } from '../services/firebase';
+import { login, logout } from '../../services/firebase'
 
 export default function Welcome({ user }) {
   const photoStyles = {

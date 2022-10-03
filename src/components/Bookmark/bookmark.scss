@@ -1,0 +1,47 @@
+// @forward './Bookmark.js';
+
+// __________Bookmark Component__________//
+.bookmark {
+  width: 15%;
+  height: 60vh;
+  padding: 2% 1% 10% 1%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  background-image: url(~/public/images/fabric.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  // background-color: rgb(129, 9, 9);
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  // --mask: conic-gradient(from -62.5deg at bottom,#0000,#000 1deg 124deg,#0000 125deg) 50%/115.26px 100%;
+  // -webkit-mask: var(--mask);
+  //         mask: var(--mask);
+  border-style: double;
+  border-color: goldenrod;
+  margin: 1.5% 4% 6% 4%;
+  color: var(--text);
+  ul {
+    list-style: none;
+    height: 55vh;
+    overflow-y: scroll;
+    font-size: 15px; // investigate responsive numbers here, instead of fixed
+    li {
+      margin-top: 1vh;
+      margin-bottom: 1vh;
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .bookmark {
+    margin-top: 0%;
+  }
+}
+@media screen and (max-width: 786px) {
+  .bookmark {
+    margin-top: 0%;
+  }
+}

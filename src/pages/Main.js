@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Route } from "react-router-dom";
 // _____Components________
-import Header from "../components/Header";
-import Bookmark from "../components/Bookmark";
+import Header from "../components/Header/Header";
+import Bookmark from "../components/Bookmark/Bookmark";
 import Create from "../components/Create";
 import Memorize from "../components/Memorize";
 import Footer from "../components/Footer";
