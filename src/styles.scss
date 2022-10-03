@@ -1,5 +1,5 @@
-@import 'components/Bookmark/bookmark';
-@import 'components/Header/header';
+@use 'components/Bookmark/bookmark';
+@use 'components/Header/header';
 
 :root {
   --page: rgba(186, 158, 55, 0.141);
