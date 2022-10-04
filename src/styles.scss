@@ -3,33 +3,18 @@
 @use 'components/Header/header';
 @use 'components/Footer/footer';
 @use 'components/Memorize/memorize';
+@import 'variables';
 
-@mixin listStyling {
-  ul {
-    display: flex;
-    flex-direction: row;
-    list-style: none;
-    align-items: center;
-    li {
-      cursor: pointer;
-      margin: 0 10px;
-    }
-  }
-}
-$phoneScreenSize: 320px;
-$tabletScreenSize: 768px;
-
-
-:root {
-  --page: rgba(186, 158, 55, 0.141);
-  --text: white;
-  --glow1: #e6a500;
-  --glow2: #ffd54d;
-  --glow3: #008ae6;
-  --glow4: #4d59ff;
-  --glow5: #e66b00;
-  --glow6: #b02222;
-}
+// :root {
+//   --page: rgba(186, 158, 55, 0.141);
+//   --text: white;
+//   --glow1: #e6a500;
+//   --glow2: #ffd54d;
+//   --glow3: #008ae6;
+//   --glow4: #4d59ff;
+//   --glow5: #e66b00;
+//   --glow6: #b02222;
+// }
 
 @font-face {
   font-family: SidheNoble;
@@ -37,7 +22,7 @@ $tabletScreenSize: 768px;
 }
 
 body {
-  background-color: var(--page);
+  // background-color: var(--page);
   font-family: SidheNoble;
   font-size: 20px;
   margin: 0;
@@ -46,10 +31,12 @@ body {
   flex-direction: column;
   justify-content: space-between;
   background-image: url(../public/images/book.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  color: var(--text);
+  @include background-image-style;
+  // background-size: cover;
+  // background-repeat: no-repeat;
+  // background-attachment: fixed;
+  // color: var(--text);
+  color: $text;
 }
 
 .main {
@@ -83,7 +70,8 @@ body {
   // } // not used?
   input, textarea {
     background-color: rgba(235, 205, 167, 0.152);
-    color: var(--text);
+    // color: var(--text);
+    color: $text;
     width: 70%;
   }
   input {
@@ -119,7 +107,8 @@ body {
   }
   input, textarea, button {
     background-color: rgba(235, 205, 167, 0.152);
-    color: var(--text);
+    // color: var(--text);
+    color: $text;
     width: 70%;
   }
   input {
@@ -127,15 +116,15 @@ body {
   }  
 }
 
-.showTable {
+.showTable, .spellDescription {
   font-family: 'Times New Roman', Times, serif;
 }
 
-.spellDescription {
-  font-family: 'Times New Roman', Times, serif;
+// .spellDescription {
+//   font-family: 'Times New Roman', Times, serif;
   // height: 50vh;
   // overflow-y: scroll;
-}
+// }
 
 .middleContent {
   display: flex;
@@ -165,7 +154,8 @@ a:active {text-decoration: none;}
 
 a {
   padding: 1%;
-  color: var(--text);
+  // color: var(--text);
+  color: $text;
 }
 
 

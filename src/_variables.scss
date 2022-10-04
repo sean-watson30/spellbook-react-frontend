@@ -1,0 +1,34 @@
+@mixin list-styling {
+  ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    align-items: center;
+    li {
+      cursor: pointer;
+      margin: 0 10px;
+    }
+  }
+}
+
+@mixin background-image-style {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+$phoneScreenSize: 320px;
+$tabletScreenSize: 768px;
+$text: white;
+
+// Bookmark
+// ul {
+//   list-style: none;
+//   height: 55vh;
+//   overflow-y: scroll;
+//   font-size: 15px; // investigate responsive numbers here, instead of fixed
+//   li {
+//     margin-top: 1vh;
+//     margin-bottom: 1vh;
+//   }
+// }
