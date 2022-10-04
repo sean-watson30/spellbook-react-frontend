@@ -3,7 +3,7 @@ import { Route } from "react-router-dom";
 // _____Components________
 import Header from "../components/Header/Header";
 import Bookmark from "../components/Bookmark/Bookmark";
-import Create from "../components/Create";
+import Create from "../components/Create/Create";
 import Memorize from "../components/Memorize/Memorize";
 import Footer from "../components/Footer/Footer";
 // _____Pages________

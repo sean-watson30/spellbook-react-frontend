@@ -1,0 +1,13 @@
+@import '../../variables';
+
+// __________Create Component__________//
+.create {
+  padding: 5%;
+  margin: 5%;
+  input, textarea {
+    @include input-styling;
+  }
+  input {
+    height: 20px;
+  }  
+}

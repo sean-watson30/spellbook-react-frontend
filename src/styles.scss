@@ -1,20 +1,10 @@
 // Importing Component scss Files //
 @use 'components/Bookmark/bookmark';
+@use 'components/Create/create';
 @use 'components/Header/header';
 @use 'components/Footer/footer';
 @use 'components/Memorize/memorize';
 @import 'variables';
-
-// :root {
-//   --page: rgba(186, 158, 55, 0.141);
-//   --text: white;
-//   --glow1: #e6a500;
-//   --glow2: #ffd54d;
-//   --glow3: #008ae6;
-//   --glow4: #4d59ff;
-//   --glow5: #e66b00;
-//   --glow6: #b02222;
-// }
 
 @font-face {
   font-family: SidheNoble;
@@ -42,19 +32,12 @@ body {
   width: 100%;
 }
 
-
-// __________Create Component__________//
-.create {
-  padding: 5%;
-  margin: 5%;
-  input, textarea {
-    @include input-styling;
-  }
-  input {
-    height: 20px;
-  }  
+// __________Link Styling__________//
+a:link, a:visited, a:hover, a:active {text-decoration: none;}
+a {
+  padding: 1%;
+  color: $text;
 }
-
 
 // __________Show Component__________//
 .spellShow {
@@ -85,147 +68,16 @@ body {
   flex-direction: row;
 }
 
-// __________Link Styling__________//
-a:link, a:visited, a:hover, a:active {text-decoration: none;}
 
-a {
-  padding: 1%;
-  color: $text;
-}
-
-// background-color: rgba(235, 205, 167, 0.152);
-// color: $text;
-// width: 70%;
-// background-color: rgba(235, 205, 167, 0.152);
-// color: $text;
-// width: 70%;
-
-// a:visited {text-decoration: none;}
-// a:hover {text-decoration: none;}
-// a:active {text-decoration: none;}
-
-// color: var(--text);
-
-// background-color: var(--page);
-// background-size: cover;
-// background-repeat: no-repeat;
-// background-attachment: fixed;
-// color: var(--text);
-// flex-direction: row;
-
-// .content {
-//   display: flex;
-// }
-// justify-content: space-around;
-
-// ul {
-//   list-style: none;
-//   display: flex;
-//   flex-direction: row;
-//   justify-content: flex-start;
-//   li {
-//     margin: 0 2%;
-//     cursor: pointer;
-//   }
-// } // not used?
-// color: var(--text);
-
-// #welcome {
-//   padding: 45% 5%;
-// }
-// not used?
-
-// // __________Footer Component__________//
-// .footer {
-  //   width: 100%;
-  //   position: fixed;
-//   bottom: 0;
-//   text-align: center;
-//   background-image: linear-gradient(rgba(0, 0, 0, 0), black);
-// }
-
-// color: var(--text);
-
-// .spellDescription {
-//   font-family: 'Times New Roman', Times, serif;
-  // height: 50vh;
-  // overflow-y: scroll;
-// }
-
-// // __________Memorize Component__________//
-// .memorize {
-//   display: flex;
-//   flex-direction: column;
-//   padding: 2%;
-//   margin: 4% 1% 4% 1%;
-//   width: 40%;
-//   height: 70vh;
-//   overflow-y: scroll;
-//   ul {
-//     width: 100%;
-//     list-style: none;
-//   }
-//   // background-image: url(../public/images/parchment.jpg);
-// }
-
-// // __________Header Component__________//
-// .header {
-//   display: flex;
-//   align-items: center;
-//   justify-content: space-between;
-//   width: 100%;
-//   font-size: 15px;
-//   ul {
-//     display: flex;
-//     flex-direction: row;
-//     list-style: none;
-//     align-items: center;
-//     li {
-//       cursor: pointer;
-//       margin: 0 10px;
-//     }
-//     .login-greeting {
-//       display: flex;
-//       align-items: center;
-//     }
-//   }
-// }
-
-
-
-// // __________Bookmark Component__________//
-// .bookmark {
-//   width: 15%;
-//   height: 60vh;
-//   padding: 2% 1% 10% 1%;
-//   display: flex;
-//   flex-direction: column;
-//   text-align: center;
-//   align-items: center;
-//   background-image: url(../public/images/fabric.jpg);
-//   background-size: cover;
-//   background-repeat: no-repeat;
-//   background-attachment: fixed;
-//   // background-color: rgb(129, 9, 9);
-//   border-bottom-left-radius: 50px;
-//   border-bottom-right-radius: 50px;
-//   // --mask: conic-gradient(from -62.5deg at bottom,#0000,#000 1deg 124deg,#0000 125deg) 50%/115.26px 100%;
-//   // -webkit-mask: var(--mask);
-//   //         mask: var(--mask);
-//   border-style: double;
-//   border-color: goldenrod;
-//   margin: 1.5% 4% 6% 4%;
-//   color: var(--text);
-//   ul {
-//     list-style: none;
-//     height: 55vh;
-//     overflow-y: scroll;
-//     font-size: 15px; // investigate responsive numbers here, instead of fixed
-//     li {
-//       margin-top: 1vh;
-//       margin-bottom: 1vh;
-//     }
-//   }
+// :root {
+//   --page: rgba(186, 158, 55, 0.141);
+//   --text: white;
+//   --glow1: #e6a500;
+//   --glow2: #ffd54d;
+//   --glow3: #008ae6;
+//   --glow4: #4d59ff;
+//   --glow5: #e66b00;
+//   --glow6: #b02222;
 // }
 
 // __________Glow Effect__________//
