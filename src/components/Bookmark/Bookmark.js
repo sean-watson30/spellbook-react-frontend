@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-// import './bookmark.scss'
 
 const Bookmark = ({ spells, spellLevel, charClass }) => {
   

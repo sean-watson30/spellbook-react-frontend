@@ -1,26 +1,28 @@
 @import '../../variables';
-// @use '../../variables';
 
-// __________Bookmark Component__________//
-.bookmark {
-  width: 15%;
-  height: 60vh;
-  padding: 2% 1% 10% 1%;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  align-items: center;
-  background-image: url(~/public/images/fabric.jpg);
-  @include background-image-style;
+@mixin border-styling {
   border-bottom-left-radius: 50px;
   border-bottom-right-radius: 50px;
   border-style: double;
   border-color: goldenrod;
+}
+
+// __________Bookmark Component__________//
+.bookmark {
+  @include flex-center;
+  @include background-image-style;
+  @include border-styling;
+  flex-direction: column;
+  text-align: center;
+  background-image: url(~/public/images/fabric.jpg);
+  width: 15%;
+  height: 60vh;
+  padding: 2% 1% 10% 1%;
   margin: 1.5% 4% 6% 4%;
   color: $text;
   ul {
-    list-style: none;
-    height: 55vh;
+    @include list-styling;
+    height: 50vh;
     overflow-y: scroll;
     font-size: 15px; // investigate responsive numbers here, instead of fixed
     li {
@@ -41,6 +43,9 @@
 //         mask: var(--mask);
 
 
+// display: flex;
+// align-items: center;
+// list-style: none;
 // background-size: cover;
 // background-repeat: no-repeat;
 // background-attachment: fixed;

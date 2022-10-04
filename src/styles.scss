@@ -22,7 +22,6 @@
 }
 
 body {
-  // background-color: var(--page);
   font-family: SidheNoble;
   font-size: 20px;
   margin: 0;
@@ -32,66 +31,30 @@ body {
   justify-content: space-between;
   background-image: url(../public/images/book.jpg);
   @include background-image-style;
-  // background-size: cover;
-  // background-repeat: no-repeat;
-  // background-attachment: fixed;
-  // color: var(--text);
   color: $text;
 }
 
-.main {
+.main, .content {
   display: flex;
-  flex-direction: row;
-  
 }
 
 .mainBody {
   width: 100%;
 }
 
-.content {
-  display: flex;
-  // justify-content: space-around;
-}
 
 // __________Create Component__________//
 .create {
   padding: 5%;
   margin: 5%;
-  // ul {
-  //   list-style: none;
-  //   display: flex;
-  //   flex-direction: row;
-  //   justify-content: flex-start;
-  //   li {
-  //     margin: 0 2%;
-  //     cursor: pointer;
-  //   }
-  // } // not used?
   input, textarea {
-    background-color: rgba(235, 205, 167, 0.152);
-    // color: var(--text);
-    color: $text;
-    width: 70%;
+    @include input-styling;
   }
   input {
     height: 20px;
   }  
 }
 
-// #welcome {
-//   padding: 45% 5%;
-// }
-// not used?
-
-// // __________Footer Component__________//
-// .footer {
-//   width: 100%;
-//   position: fixed;
-//   bottom: 0;
-//   text-align: center;
-//   background-image: linear-gradient(rgba(0, 0, 0, 0), black);
-// }
 
 // __________Show Component__________//
 .spellShow {
@@ -106,10 +69,7 @@ body {
     font-size: 18px;
   }
   input, textarea, button {
-    background-color: rgba(235, 205, 167, 0.152);
-    // color: var(--text);
-    color: $text;
-    width: 70%;
+    @include input-styling;
   }
   input {
     height: 20px;
@@ -120,16 +80,78 @@ body {
   font-family: 'Times New Roman', Times, serif;
 }
 
+.middleContent {
+  display: flex;
+  flex-direction: row;
+}
+
+// __________Link Styling__________//
+a:link, a:visited, a:hover, a:active {text-decoration: none;}
+
+a {
+  padding: 1%;
+  color: $text;
+}
+
+// background-color: rgba(235, 205, 167, 0.152);
+// color: $text;
+// width: 70%;
+// background-color: rgba(235, 205, 167, 0.152);
+// color: $text;
+// width: 70%;
+
+// a:visited {text-decoration: none;}
+// a:hover {text-decoration: none;}
+// a:active {text-decoration: none;}
+
+// color: var(--text);
+
+// background-color: var(--page);
+// background-size: cover;
+// background-repeat: no-repeat;
+// background-attachment: fixed;
+// color: var(--text);
+// flex-direction: row;
+
+// .content {
+//   display: flex;
+// }
+// justify-content: space-around;
+
+// ul {
+//   list-style: none;
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: flex-start;
+//   li {
+//     margin: 0 2%;
+//     cursor: pointer;
+//   }
+// } // not used?
+// color: var(--text);
+
+// #welcome {
+//   padding: 45% 5%;
+// }
+// not used?
+
+// // __________Footer Component__________//
+// .footer {
+  //   width: 100%;
+  //   position: fixed;
+//   bottom: 0;
+//   text-align: center;
+//   background-image: linear-gradient(rgba(0, 0, 0, 0), black);
+// }
+
+// color: var(--text);
+
 // .spellDescription {
 //   font-family: 'Times New Roman', Times, serif;
   // height: 50vh;
   // overflow-y: scroll;
 // }
 
-.middleContent {
-  display: flex;
-  flex-direction: row;
-}
 // // __________Memorize Component__________//
 // .memorize {
 //   display: flex;
@@ -145,19 +167,6 @@ body {
 //   }
 //   // background-image: url(../public/images/parchment.jpg);
 // }
-
-// __________Link Styling__________//
-a:link {text-decoration: none;}
-a:visited {text-decoration: none;}
-a:hover {text-decoration: none;}
-a:active {text-decoration: none;}
-
-a {
-  padding: 1%;
-  // color: var(--text);
-  color: $text;
-}
-
 
 // // __________Header Component__________//
 // .header {

@@ -2,38 +2,45 @@
 
 // __________Header Component__________//
 .header {
-  display: flex;
-  align-items: center;
+  @include flex-center;
   justify-content: space-between;
   width: 100%;
   font-size: 15px;
   ul {
+    @include list-styling;
     display: flex;
-    // flex-direction: row;
-    list-style: none;
-    align-items: center;
     li {
-      cursor: pointer;
       margin: 0 10px;
     }
     .login-greeting {
-      display: flex;
-      align-items: center;
+      @include flex-center;
     }
   }
   @media screen and (max-width: $tabletScreenSize) {
-      ul{
-        margin: 2px 0px;
-      }
+    ul{
+      margin: 2px 0px;
+    }
   }
 }
 
+// display: flex;
+// align-items: center;
+// display: flex;
+// align-items: center;
+
+// flex-direction: row;
+// list-style: none;
+// align-items: center;
+// cursor: pointer;
 
 
 // @media screen and (max-width: 786px) {
-// .header {
-//   ul{
-//     margin: 2px 0px;
-//   }
-// }
-// }
+  // .header {
+    //   ul{
+      //     margin: 2px 0px;
+      //   }
+      // }
+      // }
+
+
+      

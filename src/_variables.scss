@@ -1,14 +1,20 @@
 @mixin list-styling {
-  ul {
-    display: flex;
-    flex-direction: row;
     list-style: none;
     align-items: center;
-    li {
+    li{
       cursor: pointer;
-      margin: 0 10px;
     }
-  }
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+}
+
+@mixin input-styling {
+  background-color: rgba(235, 205, 167, 0.152);
+  color: $text;
+  width: 70%;
 }
 
 @mixin background-image-style {
@@ -22,8 +28,7 @@ $tabletScreenSize: 768px;
 $text: white;
 
 // Bookmark
-// ul {
-//   list-style: none;
+
 //   height: 55vh;
 //   overflow-y: scroll;
 //   font-size: 15px; // investigate responsive numbers here, instead of fixed
@@ -31,4 +36,18 @@ $text: white;
 //     margin-top: 1vh;
 //     margin-bottom: 1vh;
 //   }
+
+
+// Header
+
+//   display: flex;
+//   li {
+//     margin: 0 10px;
+//   }
+
+
+
+// Memorize
+// ul {
+//   width: 100%;
 // }
