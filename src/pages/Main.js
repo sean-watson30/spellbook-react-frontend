@@ -4,8 +4,8 @@ import { Route } from "react-router-dom";
 import Header from "../components/Header/Header";
 import Bookmark from "../components/Bookmark/Bookmark";
 import Create from "../components/Create";
-import Memorize from "../components/Memorize";
-import Footer from "../components/Footer";
+import Memorize from "../components/Memorize/Memorize";
+import Footer from "../components/Footer/Footer";
 // _____Pages________
 import Show from "./Show";
 

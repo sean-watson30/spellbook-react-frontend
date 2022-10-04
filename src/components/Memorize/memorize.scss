@@ -1,0 +1,14 @@
+// __________Memorize Component__________//
+.memorize {
+  display: flex;
+  flex-direction: column;
+  padding: 2%;
+  margin: 4% 1% 4% 1%;
+  width: 40%;
+  height: 70vh;
+  overflow-y: scroll;
+  ul {
+    width: 100%;
+    list-style: none;
+  }
+}
