@@ -90,6 +90,7 @@ const Show = ( props ) => {
             handleChange={ handleChange } 
             handleSubmit={ handleSubmit }
             form={ editForm }
+            editForm={ true }
           />
           <button onClick={() => handleRemoveSpell(spell._id)}>Delete This Spell</button>
         </>

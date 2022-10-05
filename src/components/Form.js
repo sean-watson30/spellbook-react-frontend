@@ -1,96 +1,35 @@
 import React from "react";
 
-export default function Form({ handleChange, handleSubmit, form }) {
-
-  // const inputs = [ 'level', 'name', 'school', 'range', 'duration', 'aoe', 'components', 'casting', 'saving' ]
-  // const inputMap = inputs.map(input => {
-  //   let val = ( form.input )
-  //   return (
-  //     <input 
-  //       value={ val } 
-  //       onChange={ handleChange }
-  //       name={ input }
-  //       placeholder={ input }
-  //       type="text" 
-  //     />  
-  //   )
-  // })
+export default function Form({ handleChange, handleSubmit, form, editForm }) {
+ 
+  const inputs = [
+    { name: 'level', value: form.level, placeholder: 'level' },
+    { name: 'name', value: form.name, placeholder: 'name' },
+    { name: 'school', value: form.school, placeholder: 'school' },
+    { name: 'range', value: form.range, placeholder: 'range' },
+    { name: 'duration', value: form.duration, placeholder: 'duration' },
+    { name: 'aoe', value: form.aoe, placeholder: 'area of effect' },
+    { name: 'components', value: form.components, placeholder: 'components' },
+    { name: 'casting', value: form.casting, placeholder: 'casting time' },
+    { name: 'saving', value: form.saving, placeholder: 'saving throw' },
+  ]
+  
+  const inputMap = inputs.map(input => {
+    const { name, value, placeholder } = input
+    return (
+      <input 
+        value={ value } 
+        onChange={ handleChange }
+        name={ name }
+        placeholder={ placeholder }
+        type="text" 
+      />  
+    )
+  })
 
   return (
     <form className='createForm' onSubmit={ handleSubmit }>
-      {/* { inputMap } */}
-      <input 
-        value={ form.level } 
-        onChange={ handleChange }
-        name='level'
-        placeholder="level"
-        type="text" 
-      />
-      <br />
-      <input 
-        value={ form.name } 
-        onChange={ handleChange }
-        name='name'
-        placeholder='name'
-        type="text" 
-      />
-      <br />
-      <input 
-        value={ form.school } 
-        onChange={ handleChange }
-        name='school'
-        placeholder='school'
-        type="text" 
-      />
-      <br />
-      <input 
-        value={ form.range } 
-        onChange={ handleChange }
-        name='range'
-        placeholder="range"
-        type="text" 
-      />
-      <br />
-      <input 
-        value={ form.duration } 
-        onChange={ handleChange }
-        name='duration'
-        placeholder="duration"
-        type="text" 
-      />
-      <br />
-      <input 
-        value={ form.aoe } 
-        onChange={ handleChange }
-        name='aoe'
-        placeholder="area of effect"
-        type="text" 
-      />
-      <br />
-      <input 
-        value={ form.components } 
-        onChange={ handleChange }
-        name='components'
-        placeholder="components"
-        type="text" 
-      />
-      <br />
-      <input 
-        value={ form.casting } 
-        onChange={ handleChange }
-        name='casting'
-        placeholder="casting time"
-        type="text" 
-      />
-      <br />
-      <input 
-        value={ form.saving } 
-        onChange={ handleChange } 
-        name='saving' 
-        placeholder="saving throw" 
-        type="text" 
-      />
-      <br />
+      { inputMap }
       <textarea 
         value={ form.description }
         onChange={ handleChange }
@@ -99,7 +38,11 @@ export default function Form({ handleChange, handleSubmit, form }) {
         rows="10"
       />
       <br />
-      <input type="submit" value='Transcribe Spell' />
+      {
+        editForm 
+        ? <input type="submit" value='Update Spell' /> 
+        : <input type="submit" value='Transcribe Spell' />
+      }
     </form>
   )
 }
