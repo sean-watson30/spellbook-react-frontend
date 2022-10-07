@@ -3,7 +3,7 @@ import React from "react";
 export default function Form({ handleChange, handleSubmit, form, editForm }) {
  
   const inputs = [
-    { name: 'level', value: form.level, placeholder: 'level' },
+    // { name: 'level', value: form.level, placeholder: 'level' },
     { name: 'name', value: form.name, placeholder: 'name' },
     { name: 'school', value: form.school, placeholder: 'school' },
     { name: 'range', value: form.range, placeholder: 'range' },
@@ -27,8 +27,22 @@ export default function Form({ handleChange, handleSubmit, form, editForm }) {
     )
   })
 
+  const levels = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+  const optionsMap = levels.map(level => {
+    return <option value={ level }>Level: { level }</option>
+  })
+
   return (
     <form className='createForm' onSubmit={ handleSubmit }>
+      <select 
+        name="level" 
+        value={ form.level }
+        onChange={ handleChange }
+        defaultValue='1'
+        id="">
+          { optionsMap }
+      </select>
+      <br />
       { inputMap }
       <textarea 
         value={ form.description }
