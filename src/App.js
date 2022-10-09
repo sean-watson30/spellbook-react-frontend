@@ -55,24 +55,10 @@ function App() {
     const data = await response.json();
     setSpells(data)
   }
-
-  // const getSpells = async () => {
-  //   const token = await user.getIdToken();
-  //   // console.log(URL)
-  //   const response = await fetch(URL, {
-  //     method: 'GET',
-  //     headers: {
-  //       'Authorization': 'Bearer ' + token
-  //     }
-  //   });
-  //   const data = await response.json();
-  //   setSpells(data)
-  // }
   
   useEffect(() => {
     getPriSpells()
     getWizSpells()
-    // getSpells()
   }, [user]);
   
   // ________CRUD Functions___________ //
@@ -91,7 +77,6 @@ function App() {
     });
     getWizSpells();
     getPriSpells();
-    // getSpells();
   }
         
   const deleteSpell = async (id) => {
