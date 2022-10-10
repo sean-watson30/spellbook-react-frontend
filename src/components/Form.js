@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Form({ handleChange, handleSubmit, form, editForm }) {
+export default function Form({ handleChange, handleSubmit, form, editForm, charClass }) {
  
   const inputs = [
     // { name: 'level', value: form.level, placeholder: 'level' },
@@ -23,13 +23,19 @@ export default function Form({ handleChange, handleSubmit, form, editForm }) {
         name={ name }
         placeholder={ placeholder }
         type="text" 
-      />  
+      />
     )
   })
 
   const levels = [1, 2, 3, 4, 5, 6, 7, 8, 9]
   const optionsMap = levels.map(level => {
-    return <option value={ level }>Level: { level }</option>
+    if (charClass === 'Wizard') {
+      return <option value={ level }>Level: { level }</option>
+    } else {
+      if ( level < 8 ) {
+        return <option value={ level }>Level: { level }</option>
+      }
+    }
   })
 
   return (

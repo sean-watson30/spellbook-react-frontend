@@ -4,7 +4,6 @@ import Form from '../components/Form';
 const Show = ( props ) => {
   const id = props.match.params.id;
   const spell = props.spells.find(s => s._id === id);
-  
   const [ editForm, setEditForm ] = useState(spell);
   
   let URL = ''
@@ -60,7 +59,7 @@ const Show = ( props ) => {
     <main className='spellShow'>
       <h1>{ spell.name }</h1>
       <h3>({ spell.school })</h3>
-   
+
       <button onClick={ handleMemorize }>Memorize</button>
 
       <table className='showTable'>

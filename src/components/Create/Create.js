@@ -61,6 +61,7 @@ const Create = ({ user, charClass, getWizSpells, getPriSpells }) => {
             form={ newForm }
             handleChange={ handleChange }
             handleSubmit={ handleSubmit }
+            charClass={ charClass }
           />
         </>
         :
