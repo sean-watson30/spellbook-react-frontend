@@ -61,6 +61,7 @@ a {
 
 .showTable, .spellDescription {
   font-family: 'Times New Roman', Times, serif;
+  width: 100%;
 }
 
 .middleContent {
@@ -68,6 +69,17 @@ a {
   flex-direction: row;
 }
 
+.sub-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#memorize-btn {
+  height: min-content;
+  width: min-content;
+  padding: 2%;
+}
 
 // :root {
 //   --page: rgba(186, 158, 55, 0.141);

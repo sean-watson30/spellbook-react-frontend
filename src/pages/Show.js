@@ -58,25 +58,37 @@ const Show = ( props ) => {
   return (
     <main className='spellShow'>
       <h1>{ spell.name }</h1>
-      <h3>({ spell.school })</h3>
+      <div className='sub-title'>
+        <h4>( { spell.school } )</h4>
+        <button id='memorize-btn' onClick={ handleMemorize }>Memorize</button>
+      </div>
 
-      <button onClick={ handleMemorize }>Memorize</button>
 
       <table className='showTable'>
         <tbody>
           <tr>
-            <td><b>Range: </b>{ spell.range }</td>
-            <td><b>Components:  </b>{ spell.components }</td>
+            <td><b>Range:</b></td>
+            <td className='table-row-data'>{ spell.range }</td>
           </tr>
-
           <tr>
-            <td><b>Duration: </b>{ spell.duration }</td>
-            <td><b>Casting Time: </b>{ spell.casting }</td>
+            <td><b>Duration:</b></td>
+            <td>{ spell.duration }</td>
           </tr>
-
           <tr>
-            <td><b>Area of Effect: </b>{ spell.aoe }</td>
-            <td><b>Saving Throw: </b>{ spell.saving }</td>
+            <td><b>Area of Effect:</b></td>
+            <td>{ spell.aoe }</td>
+          </tr>
+          <tr>
+            <td><b>Components:</b></td>
+            <td>{ spell.components }</td>
+          </tr>
+          <tr>
+            <td><b>Casting Time:</b></td>
+            <td>{ spell.casting }</td>
+          </tr>
+          <tr>
+            <td><b>Saving Throw:</b></td>
+            <td>{ spell.saving }</td>
           </tr>
         </tbody>
       </table>
