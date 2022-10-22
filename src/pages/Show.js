@@ -57,7 +57,7 @@ const Show = ( props ) => {
 
   return (
     <main className='spellShow'>
-      <h1>{ spell.name }</h1>
+      <h1 className='glowConst'>{ spell.name }</h1>
       <div className='sub-title'>
         <h4>( { spell.school } )</h4>
         <button id='memorize-btn' onClick={ handleMemorize }>Memorize</button>

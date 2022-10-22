@@ -11,7 +11,7 @@ const Bookmark = ({ spells, spellLevel, charClass }) => {
     return spells.map(spell => {
       if (spell.level === `${spellLevel}`) {
         return (
-          <li className='wGlow' key={spell._id}>
+          <li className='glow' key={spell._id}>
             <Link to={`/${spell._id}`}>
               {spell.name}
             </Link>

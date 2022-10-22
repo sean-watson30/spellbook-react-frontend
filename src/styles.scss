@@ -81,35 +81,46 @@ a {
   padding: 2%;
 }
 
-// :root {
-//   --page: rgba(186, 158, 55, 0.141);
-//   --text: white;
-//   --glow1: #e6a500;
-//   --glow2: #ffd54d;
-//   --glow3: #008ae6;
-//   --glow4: #4d59ff;
-//   --glow5: #e66b00;
-//   --glow6: #b02222;
-// }
+:root {
+  --page: rgba(186, 158, 55, 0.141);
+  --text: white;
+  --glow1: #e6a500;
+  --glow2: #ffd54d;
+  --glow3: #008ae6;
+  --glow4: #4d59ff;
+  --glow5: #e66b00;
+  --glow6: #b02222;
+}
 
 // __________Glow Effect__________//
 
-// .glowConst {
-  //   color: var(--text);
-  //   text-align: left;
-  //   -webkit-animation: glowConst 1s ease-in-out infinite alternate;
-  //   -moz-animation: glowConst 1s ease-in-out infinite alternate;
-  //   animation: glowConst 1s ease-in-out infinite alternate;
-  // }
-  // @-webkit-keyframes glowConst {
-    //   from {
-      //     text-shadow: 0 0 5px var(--text), 0 0 15px var(--text), 0 0 10px var(--glow1), 0 0 25px var(--glow1), 0 0 250px var(--glow1), 0 0 300px var(--glow1), 0 0 40px var(--glow1);
-      //   }
+.glowConst, .glow:hover {
+  color: var(--text);
+  text-align: left;
+  -webkit-animation: glowConst 1s ease-in-out infinite alternate;
+  -moz-animation: glowConst 1s ease-in-out infinite alternate;
+  animation: glowConst 1s ease-in-out infinite alternate;
+}
+// @keyframes glowConst {
+// // @-webkit-keyframes glowConst {
+//   from {
+//     text-shadow: 0 0 5px var(--text), 0 0 15px var(--text), 0 0 10px var(--glow1), 0 0 25px var(--glow1), 0 0 250px var(--glow1), 0 0 300px var(--glow1), 0 0 40px var(--glow1);
+//   }
       
-      //   to {
-        //     text-shadow: 0 0 10px var(--text), 0 0 20px var(--glow2), 0 0 20px var(--glow2), 0 0 30px var(--glow2), 0 0 40px var(--glow2), 0 0 50px var(--glow2), 0 0 60px var(--glow2);
-        //   }
-        // }
+//   to {
+//     text-shadow: 0 0 10px var(--text), 0 0 20px var(--glow2), 0 0 20px var(--glow2), 0 0 30px var(--glow2), 0 0 40px var(--glow2), 0 0 50px var(--glow2), 0 0 60px var(--glow2);
+//   }
+// }
+@keyframes glowConst {
+// @-webkit-keyframes glowConst {
+  from {
+    text-shadow: 0 0 5px var(--text), 0 0 15px var(--text), 0 0 10px var(--glow5), 0 0 25px var(--glow5), 0 0 250px var(--glow5), 0 0 300px var(--glow5), 0 0 40px var(--glow5);
+  }
+      
+  to {
+    text-shadow: 0 0 10px var(--text), 0 0 20px var(--glow6), 0 0 20px var(--glow6), 0 0 30px var(--glow6), 0 0 40px var(--glow6), 0 0 50px var(--glow6), 0 0 60px var(--glow6);
+  }
+}
         
         // @media screen and (max-width: 1024px) {
           //   .bookmark {

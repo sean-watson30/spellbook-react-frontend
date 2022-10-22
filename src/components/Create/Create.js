@@ -56,7 +56,7 @@ const Create = ({ user, charClass, getWizSpells, getPriSpells }) => {
       { user && charClass
         ?
         <>
-          <h2 className="glowConst">Transcribe a New { charClass } Spell</h2>
+          <h2>Transcribe a New { charClass } Spell</h2>
           <Form 
             form={ newForm }
             handleChange={ handleChange }
